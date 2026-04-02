@@ -9,8 +9,8 @@
 </template>
 
 <script>
-import AppHeader from "@/layout/AppHeader.vue";
-import AppFooter from "@/layout/AppFooter.vue";
+import AppHeader from "@/components/shared/AppHeader.vue";
+import AppFooter from "@/components/shared/AppFooter.vue";
 
 export default {
   name: "AppLayout",
