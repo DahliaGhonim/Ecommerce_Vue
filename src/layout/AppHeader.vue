@@ -1,18 +1,24 @@
 <template>
   <header>
     <div class="logo">Exclusive</div>
-    <ul>
-      <li><router-link to="/">Home</router-link></li>
-      <li><router-link to="/contact">Contact</router-link></li>
-      <li><router-link to="/about">About</router-link></li>
-    </ul>
+
+    <nav>
+      <ul>
+        <li><router-link to="/">Home</router-link></li>
+        <li><router-link to="/contact">Contact</router-link></li>
+        <li><router-link to="/about">About</router-link></li>
+      </ul>
+    </nav>
+
+    <div class="spacer"></div>
     <div class="search-wrapper">
       <input id="search" placeholder="What are you looking for?" />
-      <img src="/src/assets/images/search-icon.png" />
+      <img src="/src/assets/images/search-icon.png" alt="search" />
     </div>
+
     <div class="cart">
-      <img src="/src/assets/images/cart1.png">
-      <span>2</span>
+      <img src="/src/assets/images/cart1.png" alt="cart" />
+      <span class="cart-badge">2</span>
     </div>
   </header>
 </template>
@@ -25,33 +31,31 @@ export default {
 
 <style scoped>
 header {
-  padding: 86px 135px 22px; /* TODO: check whether this is correct */
-  /* padding-bottom: 22px;   142 - (96 + 24) */
+  width: 100%;
+  padding: 28px 80px; /* TODO: figma design deviation */
   border-bottom: 0.5px solid rgba(0, 0, 0, 0.3);
   margin-bottom: 66px; /* TODO: check whether this is correct */
 
   display: flex;
-  justify-content: center;
   align-items: center;
 }
 
+/* Logo */
 .logo {
-  width: 118px;
-  height: 24px;
   font-size: 24px;
   font-weight: 700;
   letter-spacing: 0.03em;
   line-height: 24px;
-  margin-right: 191px; /* TODO: make it reactive -> 444 - (135 + 118) */
+  margin-right: 60px; /* TODO: figma design deviation (191px) */
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
-ul {
-  min-width: 258px; /* TODO: make it reactive */
-  margin-right: 296px; /* TODO: make it reactive -> 998 - (444 + 258) */
-
+/* Nav */
+nav ul {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  gap: 40px; /* Relatively: 540 - (444 + 48) */
   list-style: none;
 
   font-family: "Poppins", Arial, Helvetica, sans-serif;
@@ -59,10 +63,12 @@ ul {
   font-weight: 400;
   letter-spacing: 0;
   line-height: 24px;
+  white-space: nowrap;
 }
 
 a {
   text-decoration: none;
+  color: #000000;
 }
 
 a:visited {
@@ -71,29 +77,36 @@ a:visited {
 
 a.router-link-exact-active {
   border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  padding-bottom: 2px;
 }
 
+.spacer {
+  flex: 1;
+}
+
+/* Search */
 .search-wrapper {
   background-color: #f5f5f5;
   padding: 7px 12px 7px 20px;
   border-radius: 4px;
-  margin-right: 29px; /* TODO: make it interactive -> 1270 - (998 + 243) */
+  margin-right: 20px; /* TODO: figma design deviation (not really) -> 1270 - (998 + 243) */
+  flex-shrink: 0;
 
   display: flex;
-  gap: 34px;
+  gap: 12px; /* TODO: figma design deviation (34px) */
   align-items: center;
 }
 
 .search-wrapper input {
   background-color: transparent;
   color: rgba(0, 0, 0, 0.5);
-  width: 153px; /* TODO: check if needs to be reactive */
-  height: 18px;
+  width: 180px; /* TODO: figma design deviation (153px) */
   font-family: "Poppins", Arial, Helvetica, sans-serif;
   font-size: 12px;
   font-weight: 400;
   letter-spacing: 0;
   line-height: 18px;
+  outline: none;
   border: none;
 }
 
@@ -101,24 +114,43 @@ a.router-link-exact-active {
   color: rgba(0, 0, 0, 0.5);
 }
 
-.search-wrapper input:focus {
-  outline: none;
-  box-shadow: none;
-}
-
 .search-wrapper img {
   width: 16px;
   height: 16px;
+  flex-shrink: 0;
+}
+
+/* Cart */
+.cart {
+  position: relative;
+  flex-shrink: 0;
+  cursor: pointer;
 }
 
 .cart img {
-  position: relative;
   width: 24px;
   height: 24px;
+  display: block;
 }
 
-.cart span {
+.cart-badge {
   position: absolute;
-  top: -3;
+  top: -6px; /* TODO: check measurements in Figma design */
+  right: -6px; /* TODO: check measurements in Figma design */
+
+  background-color: #db4444;
+  color: #fafafa;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 18px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 </style>
