@@ -19,7 +19,7 @@
       />
       <img
         class="header__search-icon"
-        src="/src/assets/images/search-icon.png"
+        src="/src/assets/images/icons/icon-search.png"
         alt="search"
       />
     </div>
@@ -27,7 +27,7 @@
     <div class="header__cart">
       <img
         class="header__cart-icon"
-        src="/src/assets/images/cart1.png"
+        src="/src/assets/images/icons/icon-cart.png"
         alt="cart"
       />
       <span class="header__cart-badge">2</span>
