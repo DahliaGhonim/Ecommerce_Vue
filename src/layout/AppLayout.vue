@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="page">
     <AppHeader />
-    <main>
+    <main class="page__main">
       <slot />
     </main>
     <AppFooter />
@@ -21,4 +21,14 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.page__main {
+  flex: 1;
+}
+</style>
