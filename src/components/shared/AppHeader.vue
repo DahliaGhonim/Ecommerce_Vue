@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-    <AppLogo />
+    <router-link to="/"><AppLogo /></router-link>
 
     <nav>
       <ul class="header__links">
@@ -74,12 +74,14 @@ export default {
   margin-right: 60px; /* TODO: check whether this is correct */
 }
 
-.header__links a {
+.header__links a,
+.header a {
   text-decoration: none;
   color: #000000;
 }
 
-.header__links a:visited {
+.header__links a:visited,
+.header a:visited {
   color: #000000;
 }
 
@@ -107,7 +109,6 @@ export default {
 
 .header__search-input {
   background-color: transparent;
-  color: rgba(0, 0, 0, 0.5);
   width: 180px; /* TODO: figma design deviation (153px) */
   font-family: "Poppins", Arial, Helvetica, sans-serif;
   font-size: 12px;

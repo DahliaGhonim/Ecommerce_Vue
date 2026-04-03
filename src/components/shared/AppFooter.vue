@@ -4,9 +4,9 @@
     <div class="footer__main">
       <!-- Column 1: logo + subscribe -->
       <div class="footer__main-col">
-        <AppLogo />
+        <AppLogo class="footer__logo" />
         <h3 class="footer__col-title">Subscribe</h3>
-        <p>Get 10% off your first order</p>
+        <p class="footer__col-text">Get 10% off your first order</p>
         <div class="footer__send-email">
           <input
             class="footer__email-input"
@@ -24,34 +24,62 @@
       <!-- Column 2: support -->
       <div class="footer__main-col">
         <h3 class="footer__col-title">Support</h3>
-        <p>111 Bijoy sarani, Dhaka, DH 1515, Bangladesh.</p>
-        <p>exclusive@gmail.com</p>
-        <p>+88015-88888-9999</p>
+        <p class="footer__col-text">
+          111 Bijoy sarani, Dhaka, DH 1515, Bangladesh.
+        </p>
+        <p class="footer__col-text">exclusive@gmail.com</p>
+        <p class="footer__col-text">+88015-88888-9999</p>
       </div>
 
       <!-- Column 3: account -->
       <div class="footer__main-col">
         <h3 class="footer__col-title">Account</h3>
-        <router-link class="footer__col-link" to="/">My Account</router-link>
-        <router-link class="footer__col-link" to="/">
-          Login / Register
-        </router-link>
-        <router-link class="footer__col-link" to="/">Cart</router-link>
-        <router-link class="footer__col-link" to="/">Wishlist</router-link>
-        <router-link class="footer__col-link" to="/">Shop</router-link>
+        <ul class="footer__links">
+          <li>
+            <router-link class="footer__col-link" to="/">
+              My Account
+            </router-link>
+          </li>
+          <li>
+            <router-link class="footer__col-link" to="/">
+              Login / Register
+            </router-link>
+          </li>
+          <li>
+            <router-link class="footer__col-link" to="/">Cart</router-link>
+          </li>
+          <li>
+            <router-link class="footer__col-link" to="/">Wishlist</router-link>
+          </li>
+          <li>
+            <router-link class="footer__col-link" to="/">Shop</router-link>
+          </li>
+        </ul>
       </div>
 
       <!-- Column 4: quick link -->
       <div class="footer__main-col">
         <h3 class="footer__col-title">Quick Link</h3>
-        <router-link class="footer__col-link" to="/">
-          Privacy Policy
-        </router-link>
-        <router-link class="footer__col-link" to="/">Terms Of Use</router-link>
-        <router-link class="footer__col-link" to="/">FAQ</router-link>
-        <router-link class="footer__col-link" to="/contact">
-          Contact
-        </router-link>
+        <ul class="footer__links">
+          <li>
+            <router-link class="footer__col-link" to="/">
+              Privacy Policy
+            </router-link>
+          </li>
+          <li>
+            <router-link class="footer__col-link" to="/">
+              Terms Of Use
+            </router-link>
+          </li>
+          <li>
+            <router-link class="footer__col-link" to="/">FAQ</router-link>
+          </li>
+          <li>
+            <router-link class="footer__col-link" to="/contact">
+              Contact
+            </router-link>
+          </li>
+        </ul>
       </div>
 
       <!-- Column 5: download app -->
@@ -66,11 +94,11 @@
             />
             <div class="footer__apps-links">
               <img
-                class="footer__app-link"
+                class="footer__app-google"
                 src="/src/assets/images/icons/google-play.png"
               />
               <img
-                class="footer__app-link"
+                class="footer__app-apple"
                 src="/src/assets/images/icons/app-store.png"
               />
             </div>
@@ -159,10 +187,11 @@ export default {
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
+}
 
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+.footer__logo {
+  cursor: default;
+  margin-bottom: 24px;
 }
 
 .footer__col-title {
@@ -170,6 +199,17 @@ export default {
   font-weight: 500;
   line-height: 28px;
   margin-bottom: 24px;
+}
+
+.footer__col-text {
+  margin-bottom: 16px;
+}
+
+.footer__links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .footer__col-link {
@@ -240,19 +280,24 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 4px;
+  gap: 12px;
 }
 
-.footer__app-link {
-  width: 110px;
-  height: 40px;
+.footer__app-google {
+  width: 104px;
+  height: 30px;
+}
+
+.footer__app-apple {
+  width: 104px;
+  height: 34px;
 }
 
 .footer__socials {
   display: flex;
   align-items: center;
   gap: 24px;
-  margin-top: 18px; /* TODO: figma design deviation (24px) */
+  margin-top: 24px;
 }
 
 .footer__social-icon {
