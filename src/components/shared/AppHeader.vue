@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-    <div class="header__logo">Exclusive</div>
+    <AppLogo />
 
     <nav>
       <ul class="header__links">
@@ -36,8 +36,13 @@
 </template>
 
 <script>
+import AppLogo from "@/components/shared/AppLogo.vue";
+
 export default {
   name: "AppHeader",
+  components: {
+    AppLogo,
+  },
 };
 </script>
 
@@ -50,17 +55,6 @@ export default {
 
   display: flex;
   align-items: center;
-}
-
-/* Logo */
-.header__logo {
-  font-size: 24px;
-  font-weight: 700;
-  letter-spacing: 0.03em;
-  line-height: 24px;
-  margin-right: 60px; /* TODO: figma design deviation (191px) */
-  white-space: nowrap;
-  flex-shrink: 0;
 }
 
 /* Nav */
@@ -76,6 +70,7 @@ export default {
   letter-spacing: 0;
   line-height: 24px;
   white-space: nowrap;
+  margin-left: 60px; /* TODO: figma design deviation (191px) */
   margin-right: 60px; /* TODO: check whether this is correct */
 }
 
