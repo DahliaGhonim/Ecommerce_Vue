@@ -13,3 +13,10 @@ body {
   color: #000000;
   font-family: "Inter", Arial, Helvetica, sans-serif;
 }
+
+input,
+button,
+select,
+textarea {
+  font-family: inherit;
+}

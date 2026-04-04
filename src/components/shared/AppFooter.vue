@@ -5,7 +5,7 @@
       <!-- Column 1: logo + subscribe -->
       <div class="footer__main-col">
         <AppLogo class="footer__logo" />
-        <h3 class="footer__col-title">Subscribe</h3>
+        <h2 class="footer__col-title">Subscribe</h2>
         <p class="footer__col-text">Get 10% off your first order</p>
         <div class="footer__send-email">
           <input
@@ -23,7 +23,7 @@
 
       <!-- Column 2: support -->
       <div class="footer__main-col">
-        <h3 class="footer__col-title">Support</h3>
+        <h2 class="footer__col-title">Support</h2>
         <p class="footer__col-text">
           111 Bijoy sarani, Dhaka, DH 1515, Bangladesh.
         </p>
@@ -33,7 +33,7 @@
 
       <!-- Column 3: account -->
       <div class="footer__main-col">
-        <h3 class="footer__col-title">Account</h3>
+        <h2 class="footer__col-title">Account</h2>
         <ul class="footer__links">
           <li>
             <router-link class="footer__col-link" to="/">
@@ -59,7 +59,7 @@
 
       <!-- Column 4: quick link -->
       <div class="footer__main-col">
-        <h3 class="footer__col-title">Quick Link</h3>
+        <h2 class="footer__col-title">Quick Link</h2>
         <ul class="footer__links">
           <li>
             <router-link class="footer__col-link" to="/">
@@ -84,7 +84,7 @@
 
       <!-- Column 5: download app -->
       <div class="footer__main-col">
-        <h3 class="footer__col-title">Download App</h3>
+        <h2 class="footer__col-title">Download App</h2>
         <div>
           <p class="footer__apps-text">Save $3 with App New User Only</p>
           <div class="footer__apps-wrapper">
@@ -236,7 +236,6 @@ export default {
 .footer__email-input {
   background-color: transparent;
   color: rgba(250, 250, 250, 0.8); /* Not specified by Figma design */
-  font-family: "Poppins", Arial, Helvetica, sans-serif;
   font-size: 16px;
   font-weight: 400;
   flex: 1;
