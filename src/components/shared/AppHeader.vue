@@ -32,16 +32,20 @@
       />
       <span class="header__cart-badge">2</span>
     </div>
+
+    <CartSlider />
   </header>
 </template>
 
 <script>
 import AppLogo from "@/components/shared/AppLogo.vue";
+import CartSlider from "@/components/cart/CartSlider.vue";
 
 export default {
   name: "AppHeader",
   components: {
     AppLogo,
+    CartSlider,
   },
 };
 </script>
