@@ -1,12 +1,23 @@
 <template>
   <div class="quantity-input">
-    <input class="quantity-input__field" id="quantity" type="number" v-model.number="quantity">
+    <input
+      class="quantity-input__field"
+      id="quantity"
+      type="number"
+      v-model.number="quantity"
+    />
     <div class="quantity-input__controls">
       <button class="quantity-input__btn" @click.stop="increment">
-        <img class="quantity-input__arrow" src="/src/assets/images/icons/icon-up.png">
+        <img
+          class="quantity-input__arrow"
+          src="/src/assets/images/icons/icon-up.png"
+        />
       </button>
       <button class="quantity-input__btn" @click.stop="decrement">
-        <img class="quantity-input__arrow" src="/src/assets/images/icons/icon-down.png">
+        <img
+          class="quantity-input__arrow"
+          src="/src/assets/images/icons/icon-down.png"
+        />
       </button>
     </div>
   </div>
@@ -18,7 +29,7 @@ export default {
   data() {
     return {
       quantity: 12,
-    }
+    };
   },
   methods: {
     increment() {
@@ -29,7 +40,7 @@ export default {
         this.quantity--;
       }
     },
-  }
+  },
 };
 </script>
 
@@ -53,7 +64,7 @@ export default {
   margin: 0;
 }
 .quantity-input__field[type="number"] {
-  -moz-appearance: textfield; /* Firefox */ /* TODO: check if needs to be changed */
+  appearance: textfield; /* TODO: check if needs to be changed */
 }
 
 .quantity-input__field {
@@ -86,7 +97,7 @@ export default {
 }
 
 .quantity-input__arrow {
-  width: 8.49px;  /* TODO: this is the reverse of the figma design */
+  width: 8.49px; /* TODO: this is the reverse of the figma design */
   height: 5.19px; /* TODO: width is 8.49 height is 5.19 */
 }
 </style>
