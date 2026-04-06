@@ -43,14 +43,14 @@ import CartSlider from "@/components/cart/CartSlider.vue";
 
 export default {
   name: "AppHeader",
+  components: {
+    AppLogo,
+    CartSlider,
+  },
   data() {
     return {
       isCartOpen: false,
     };
-  },
-  components: {
-    AppLogo,
-    CartSlider,
   },
 };
 </script>

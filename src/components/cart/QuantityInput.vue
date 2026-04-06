@@ -2,7 +2,6 @@
   <div class="quantity-input">
     <input
       class="quantity-input__field"
-      id="quantity"
       type="number"
       v-model.number="quantity"
     />
@@ -26,9 +25,15 @@
 <script>
 export default {
   name: "QuantityInput",
+  props: {
+    initialQuantity: {
+      type: Number,
+      default: 0,
+    },
+  },
   data() {
     return {
-      quantity: 12,
+      quantity: this.initialQuantity,
     };
   },
   methods: {

@@ -108,6 +108,12 @@ export default {
     RadioInput,
     AppButton,
   },
+  props: {
+    isOpen: {
+      type: Boolean,
+      default: false,
+    },
+  },
   data() {
     return {
       selectedItem: null,
@@ -120,12 +126,6 @@ export default {
       Mastercard,
       Nagad,
     };
-  },
-  props: {
-    isOpen: {
-      type: Boolean,
-      default: false,
-    },
   },
   methods: {
     closeCart() {
