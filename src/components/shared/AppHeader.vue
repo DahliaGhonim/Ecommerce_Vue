@@ -24,7 +24,7 @@
       />
     </div>
 
-    <div class="header__cart">
+    <div class="header__cart" @click="isCartOpen = true">
       <img
         class="header__cart-icon"
         src="/src/assets/images/icons/icon-cart.png"
@@ -33,7 +33,7 @@
       <span class="header__cart-badge">2</span>
     </div>
 
-    <CartSlider />
+    <CartSlider :isOpen="isCartOpen" @closeCart="isCartOpen = false" />
   </header>
 </template>
 
@@ -43,6 +43,11 @@ import CartSlider from "@/components/cart/CartSlider.vue";
 
 export default {
   name: "AppHeader",
+  data() {
+    return {
+      isCartOpen: false,
+    };
+  },
   components: {
     AppLogo,
     CartSlider,

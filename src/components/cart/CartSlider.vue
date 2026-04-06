@@ -1,13 +1,18 @@
 <template>
   <aside>
-    <div class="cart__overlay"></div>
-    <div class="cart__panel" @click="selectedItem = null">
+    <div class="cart__overlay" v-if="isOpen" @click="closeCart"></div>
+    <div
+      class="cart__panel"
+      :class="{ 'cart__panel--open': isOpen }"
+      @click="selectedItem = null"
+    >
       <!-- Cart header -->
       <header class="cart__header">
         <h2 class="cart__title">Shopping Cart</h2>
         <img
           class="cart__close"
           src="/src/assets/images/icons/icon-close.png"
+          @click="closeCart"
         />
       </header>
 
@@ -116,6 +121,17 @@ export default {
       Nagad,
     };
   },
+  props: {
+    isOpen: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  methods: {
+    closeCart() {
+      this.$emit("closeCart");
+    },
+  },
 };
 </script>
 
@@ -141,7 +157,12 @@ export default {
   padding: 41px 0 80px; /* TODO: 80px is by myeself */
 
   overflow-y: auto;
-  /* transform: translateX(0); */
+  transform: translateX(100%);
+  transition: transform 0.5s ease;
+}
+
+.cart__panel--open {
+  transform: translateX(0);
 }
 
 /* *************************************************** */
