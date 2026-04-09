@@ -1,0 +1,31 @@
+.heading {
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-size: 36px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  line-height: 48px;
+}
+
+.title-16px-medium {
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 24px;
+}
+
+.title-14px-semibold {
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 21px;
+}
+
+.title-12px-regular {
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 18px;
+}
