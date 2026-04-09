@@ -52,7 +52,9 @@
             <router-link class="footer__col-link" to="/">Wishlist</router-link>
           </li>
           <li>
-            <router-link class="footer__col-link" to="/">Shop</router-link>
+            <router-link class="footer__col-link" to="/products">
+              Shop
+            </router-link>
           </li>
         </ul>
       </div>
@@ -163,7 +165,6 @@ export default {
   color: #ffffff;
   width: 100%;
   padding: 80px 0 24px;
-  margin-top: 150px;
 }
 
 /* *************************************************** */

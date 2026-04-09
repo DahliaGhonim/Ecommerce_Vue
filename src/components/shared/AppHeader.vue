@@ -60,7 +60,7 @@ export default {
   width: 100%;
   padding: 28px 80px; /* TODO: figma design deviation */
   border-bottom: 0.5px solid rgba(0, 0, 0, 0.3);
-  margin-bottom: 66px; /* TODO: check whether this is correct */
+  /* margin-bottom: 66px; TODO: check whether this is correct */
 
   display: flex;
   align-items: center;
