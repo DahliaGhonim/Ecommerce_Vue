@@ -215,7 +215,7 @@ export default {
 }
 
 .cart__item--selected {
-  background-color: #a0bce0;
+  background-color: var(--color-selected);
 }
 
 .cart__item-remove-btn {
@@ -311,7 +311,7 @@ export default {
   width: 300px;
   height: 56px;
   padding: 16px 24px;
-  border: 1px solid #000000;
+  border: 1px solid var(--color-black);
   border-radius: 4px;
 }
 </style>

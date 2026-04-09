@@ -46,7 +46,7 @@ export default {
 .radio-input__field[type="radio"] {
   width: 24px;
   height: 24px;
-  accent-color: #000000;
+  accent-color: var(--color-black);
 }
 
 .radio-input__field[type="radio"],

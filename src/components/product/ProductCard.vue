@@ -78,7 +78,7 @@ export default {
 /* *************************************************** */
 .product-card__top {
   position: relative;
-  background-color: #f5f5f5;
+  background-color: var(--color-gray);
   width: 270px;
   height: 250px;
   border-radius: 4px;
@@ -139,17 +139,17 @@ export default {
   top: 12px;
   left: 12px;
 
-  color: #fafafa;
+  color: var(--color-white);
   padding: 4px 12px;
   border-radius: 4px;
 }
 
 .product-card__new {
-  background-color: #00ff66;
+  background-color: var(--color-new);
 }
 
 .product-card__discount {
-  background-color: #db4444;
+  background-color: var(--color-primary);
 }
 
 .product-card__add-to-cart {
@@ -158,7 +158,7 @@ export default {
   left: 0;
   right: 0;
 
-  background-color: #000000;
+  background-color: var(--color-black);
   color: #ffffff;
   text-align: center;
   padding: 8px 0;
@@ -186,7 +186,7 @@ export default {
 }
 
 .product-card__price {
-  color: #db4444;
+  color: var(--color-primary);
 }
 
 .product-card__rating {

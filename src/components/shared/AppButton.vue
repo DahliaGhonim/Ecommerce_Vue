@@ -18,8 +18,8 @@ export default {
 
 <style scoped>
 .btn {
-  background-color: #db4444;
-  color: #fafafa;
+  background-color: var(--color-primary);
+  color: var(--color-white);
   font-family: "Poppins", Arial, Helvetica, sans-serif;
   font-weight: 500;
   padding: 16px 48px;

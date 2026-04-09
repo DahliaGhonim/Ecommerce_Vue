@@ -86,12 +86,12 @@ export default {
 .header__links a,
 .header a {
   text-decoration: none;
-  color: #000000;
+  color: var(--color-black);
 }
 
 .header__links a:visited,
 .header a:visited {
-  color: #000000;
+  color: var(--color-black);
 }
 
 .header__links a.router-link-exact-active {
@@ -105,7 +105,7 @@ export default {
 
 /* Search */
 .header__search {
-  background-color: #f5f5f5;
+  background-color: var(--color-gray);
   padding: 7px 12px 7px 20px;
   border-radius: 4px;
   margin-right: 20px; /* TODO: figma design deviation (not really) -> 1270 - (998 + 243) */
@@ -156,8 +156,8 @@ export default {
   top: -6px; /* TODO: check measurements in Figma design */
   right: -6px; /* TODO: check measurements in Figma design */
 
-  background-color: #db4444;
-  color: #fafafa;
+  background-color: var(--color-primary);
+  color: var(--color-white);
   font-family: "Poppins", Arial, Helvetica, sans-serif;
   font-size: 12px;
   font-weight: 400;

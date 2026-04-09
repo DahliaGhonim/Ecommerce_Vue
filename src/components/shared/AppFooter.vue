@@ -159,7 +159,7 @@ export default {
 <style scoped>
 .footer {
   font-family: "Poppins", Arial, Helvetica, sans-serif;
-  background-color: #000000;
+  background-color: var(--color-black);
   color: #ffffff;
   width: 100%;
   padding: 80px 0 24px;
@@ -176,7 +176,7 @@ export default {
   gap: 60px; /* TODO: figma design deviation (87px) */
 
   letter-spacing: 0;
-  color: #fafafa;
+  color: var(--color-white);
   width: 100%;
   padding: 0 80px 60px; /* TODO: figma design deviation (135 not 80) */
 }
@@ -213,19 +213,19 @@ export default {
 }
 
 .footer__col-link {
-  color: #fafafa;
+  color: var(--color-white);
   text-decoration: none;
 }
 
 .footer__col-link:visited {
-  color: #fafafa;
+  color: var(--color-white);
 }
 
 /* Column 1: logo + subscribe */
 .footer__send-email {
   width: 217px;
   padding: 12px 16px;
-  border: 1.5px solid #fafafa;
+  border: 1.5px solid var(--color-white);
   border-radius: 4px;
 
   display: flex;
