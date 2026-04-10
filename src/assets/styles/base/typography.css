@@ -1,9 +1,20 @@
-.heading {
+.heading,
+.heading-20px-regular {
   font-family: "Inter", Arial, Helvetica, sans-serif;
+}
+
+.heading {
   font-size: 36px;
   font-weight: 600;
   letter-spacing: 0.04em;
   line-height: 48px;
+}
+
+.heading-20px-regular {
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  line-height: 20px;
 }
 
 .title-16px-medium,
