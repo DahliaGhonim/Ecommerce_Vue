@@ -18,7 +18,10 @@
       >
         New
       </div>
-      <div class="title-12px-regular product-card__discount" v-if="product.discountPercentage">
+      <div
+        class="title-12px-regular product-card__discount"
+        v-if="product.discountPercentage"
+      >
         -{{ Math.round(product.discountPercentage) }}%
       </div>
       <div

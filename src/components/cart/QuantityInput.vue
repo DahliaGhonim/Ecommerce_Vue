@@ -9,16 +9,10 @@
     />
     <div class="quantity-input__controls">
       <button class="quantity-input__btn" @click.stop="increment">
-        <img
-          class="quantity-input__arrow"
-          :src="upIcon"
-        />
+        <img class="quantity-input__arrow" :src="upIcon" />
       </button>
       <button class="quantity-input__btn" @click.stop="decrement">
-        <img
-          class="quantity-input__arrow"
-          :src="downIcon"
-        />
+        <img class="quantity-input__arrow" :src="downIcon" />
       </button>
     </div>
   </div>
