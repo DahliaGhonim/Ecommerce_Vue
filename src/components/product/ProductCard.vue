@@ -2,7 +2,7 @@
   <div class="product-card">
     <div class="product-card__top">
       <div class="product-card__img-wrapper">
-        <img class="product-card__img" :src="productImg" />
+        <img class="product-card__img" :src="product.thumbnail" />
       </div>
       <div class="product-card__top-right">
         <div class="product-card__top-icon">
@@ -14,20 +14,20 @@
       </div>
       <div
         class="title-12px-regular product-card__new"
-        v-if="isNew && !hasDiscount"
+        v-if="isNew && !product.discountPercentage"
       >
         New
       </div>
-      <div class="title-12px-regular product-card__discount" v-if="hasDiscount">
-        -40%
+      <div class="title-12px-regular product-card__discount" v-if="product.discountPercentage">
+        -{{ Math.round(product.discountPercentage) }}%
       </div>
       <div class="title-16px-medium product-card__add-to-cart">
         <p>Add To Cart</p>
       </div>
     </div>
-    <p class="title-16px-medium">Breed Dry Dog Food</p>
+    <p class="title-16px-medium">{{ product.title }}</p>
     <div class="product-card__buttom">
-      <p class="title-16px-medium product-card__price">$100</p>
+      <p class="title-16px-medium product-card__price">{{ product.price }}</p>
       <img class="product-card__rating" :src="threeStars" />
       <p class="title-14px-semibold product-card__rating-count">(35)</p>
     </div>
@@ -36,7 +36,6 @@
 
 <script>
 // images
-import productImg from "@/assets/images/components/product/71RdoeXxtrL.png";
 import heartIcon from "@/assets/images/components/product/icon-heart.png";
 import eyeIcon from "@/assets/images/components/product/icon-eye.png";
 import threeStars from "@/assets/images/components/product/stars-3.png";
@@ -44,11 +43,11 @@ import threeStars from "@/assets/images/components/product/stars-3.png";
 export default {
   name: "ProductCard",
   props: {
-    isNew: {
-      type: Boolean,
-      default: false,
+    product: {
+      type: Object,
+      required: true,
     },
-    hasDiscount: {
+    isNew: {
       type: Boolean,
       default: false,
     },
@@ -56,7 +55,6 @@ export default {
   data() {
     return {
       // images
-      productImg,
       heartIcon,
       eyeIcon,
       threeStars,

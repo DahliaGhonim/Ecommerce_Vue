@@ -8,23 +8,23 @@
       </div>
     </header>
     <div class="products__grid">
-      <ProductCard :isNew="false" :hasDiscount="false" />
-      <ProductCard :isNew="false" :hasDiscount="false" />
-      <ProductCard :isNew="false" :hasDiscount="false" />
-      <ProductCard :isNew="false" :hasDiscount="false" />
-      <ProductCard :isNew="false" :hasDiscount="false" />
-      <ProductCard :isNew="false" :hasDiscount="false" />
-      <ProductCard :isNew="false" :hasDiscount="false" />
-      <ProductCard :isNew="false" :hasDiscount="false" />
-      <ProductCard :isNew="false" :hasDiscount="false" />
-      <ProductCard :isNew="false" :hasDiscount="false" />
-      <ProductCard :isNew="false" :hasDiscount="false" />
+      <p v-if="isLoading">Loading...</p>
+      <p v-else-if="error">{{ error }}</p>
+      <ProductCard
+        v-else
+        v-for="product in allProducts"
+        :key="product.id"
+        :product="product"
+      />
     </div>
     <AppButton class="products__load-btn">Load more ...</AppButton>
   </div>
 </template>
 
 <script>
+import { mapGetters, mapActions } from "vuex";
+
+// Components
 import AppBreadcrumb from "@/components/layout/AppBreadcrumb.vue";
 import SortSelect from "@/components/UI/SortSelect.vue";
 import ProductCard from "@/components/product/ProductCard.vue";
@@ -37,6 +37,15 @@ export default {
     SortSelect,
     ProductCard,
     AppButton,
+  },
+  computed: {
+    ...mapGetters("products", ["allProducts", "isLoading", "error"]),
+  },
+  methods: {
+    ...mapActions("products", ["fetchProducts"]),
+  },
+  created() {
+    this.fetchProducts();
   },
 };
 </script>
