@@ -9,13 +9,13 @@
       <button class="quantity-input__btn" @click.stop="increment">
         <img
           class="quantity-input__arrow"
-          src="/src/assets/images/icons/icon-up.png"
+          :src="upIcon"
         />
       </button>
       <button class="quantity-input__btn" @click.stop="decrement">
         <img
           class="quantity-input__arrow"
-          src="/src/assets/images/icons/icon-down.png"
+          :src="downIcon"
         />
       </button>
     </div>
@@ -23,6 +23,9 @@
 </template>
 
 <script>
+import upIcon from "@/assets/images/components/shared/icon-up.png";
+import downIcon from "@/assets/images/components/shared/icon-down.png";
+
 export default {
   name: "QuantityInput",
   props: {
@@ -34,6 +37,10 @@ export default {
   data() {
     return {
       quantity: this.initialQuantity,
+
+      // images
+      upIcon,
+      downIcon,
     };
   },
   methods: {
