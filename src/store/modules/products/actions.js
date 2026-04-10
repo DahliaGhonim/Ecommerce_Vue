@@ -12,4 +12,15 @@ export default {
       commit("SET_LOADING", false);
     }
   },
+
+  // Cart
+  addToSideCart({ commit }, product) {
+    commit("ADD_TO_SIDE_CART", product);
+  },
+  updateSideCartQuantity({ commit }, payload) {
+    commit("UPDATE_SIDE_CART_QUANTITY", payload);
+  },
+  removeFromSideCart({ commit }, productId) {
+    commit("REMOVE_FROM_SIDE_CART", productId);
+  },
 };

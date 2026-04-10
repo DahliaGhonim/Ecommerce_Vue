@@ -30,7 +30,9 @@
         src="/src/assets/images/icons/icon-cart.png"
         alt="cart"
       />
-      <span class="header__cart-badge">2</span>
+      <span class="header__cart-badge" v-if="sideCartCount > 0">
+        {{ sideCartCount }}
+      </span>
     </div>
 
     <CartSlider :isOpen="isCartOpen" @closeCart="isCartOpen = false" />
@@ -38,6 +40,9 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
+// Components
 import AppLogo from "@/components/shared/AppLogo.vue";
 import CartSlider from "@/components/cart/CartSlider.vue";
 
@@ -51,6 +56,9 @@ export default {
     return {
       isCartOpen: false,
     };
+  },
+  computed: {
+    ...mapGetters("products", ["sideCartCount"]),
   },
 };
 </script>

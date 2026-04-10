@@ -21,7 +21,10 @@
       <div class="title-12px-regular product-card__discount" v-if="product.discountPercentage">
         -{{ Math.round(product.discountPercentage) }}%
       </div>
-      <div class="title-16px-medium product-card__add-to-cart">
+      <div
+        class="title-16px-medium product-card__add-to-cart"
+        @click.stop="handleAddToCart"
+      >
         <p>Add To Cart</p>
       </div>
     </div>
@@ -35,6 +38,8 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
+
 // images
 import heartIcon from "@/assets/images/components/product/icon-heart.png";
 import eyeIcon from "@/assets/images/components/product/icon-eye.png";
@@ -59,6 +64,12 @@ export default {
       eyeIcon,
       threeStars,
     };
+  },
+  methods: {
+    ...mapActions("products", ["addToSideCart"]),
+    handleAddToCart() {
+      this.addToSideCart(this.product);
+    },
   },
 };
 </script>

@@ -20,21 +20,26 @@
       <section class="cart__items">
         <div
           class="cart__item"
-          :class="{ 'cart__item--selected': selectedItem === index }"
-          v-for="(item, index) in items"
-          :key="index"
-          @click.stop="selectedItem = index"
+          :class="{ 'cart__item--selected': selectedItem === item.id }"
+          v-for="item in sideCartItems"
+          :key="item.id"
+          @click.stop="selectedItem = item.id"
         >
-          <button class="cart__item-remove-btn" v-if="selectedItem === index">
+          <button
+            class="cart__item-remove-btn"
+            v-if="selectedItem === item.id"
+            @click.stop="handleRemove(item.id)"
+          >
             <img class="cart__item-remove-icon" :src="cancelIcon" />
           </button>
-          <img
-            class="cart__item-img"
-            src="/src/assets/images/products/Gamepad-Cart-Small.png"
+          <img class="cart__item-img" :src="item.thumbnail" />
+          <p>{{ item.title }}</p>
+          <QuantityInput
+            :value="item.quantity"
+            @click.stop
+            @change="handleQuantityChange(item.id, $event)"
           />
-          <p>H1 Gamepad</p>
-          <QuantityInput />
-          <p>$650</p>
+          <p>${{ (item.price * item.quantity).toFixed(2) }}</p>
         </div>
       </section>
 
@@ -42,7 +47,7 @@
       <section class="cart__order">
         <div class="cart__order-details">
           <p>Subtotal:</p>
-          <p>$1750</p>
+          <p>${{ totalUSD.toFixed(2) }}</p>
         </div>
         <div class="cart__order-details">
           <p>Shipping:</p>
@@ -50,7 +55,7 @@
         </div>
         <div class="cart__order-total">
           <p>Total:</p>
-          <p>$1750</p>
+          <p>${{ totalUSD.toFixed(2) }}</p>
         </div>
         <form @submit.prevent>
           <div class="cart__order-payments-wrapper">
@@ -90,6 +95,9 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from "vuex";
+
+// Components
 import QuantityInput from "./QuantityInput.vue";
 import RadioInput from "./RadioInput.vue";
 import AppButton from "@/components/shared/AppButton.vue";
@@ -117,8 +125,6 @@ export default {
   data() {
     return {
       selectedItem: null,
-      items: [1, 2, 3],
-
       // images
       cancelIcon,
       Bkash,
@@ -127,9 +133,20 @@ export default {
       Nagad,
     };
   },
+  computed: {
+    ...mapGetters("products", ["sideCartItems", "totalUSD"]),
+  },
   methods: {
+    ...mapActions("products", ["updateSideCartQuantity", "removeFromSideCart"]),
     closeCart() {
       this.$emit("closeCart");
+    },
+    handleQuantityChange(productId, quantity) {
+      this.updateSideCartQuantity({ productId, quantity });
+    },
+    handleRemove(productId) {
+      this.removeFromSideCart(productId);
+      this.selectedItem = null;
     },
   },
 };

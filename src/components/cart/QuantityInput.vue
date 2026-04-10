@@ -3,7 +3,9 @@
     <input
       class="quantity-input__field"
       type="number"
-      v-model.number="quantity"
+      :value="value"
+      @input="onInput"
+      @blur="onBlur"
     />
     <div class="quantity-input__controls">
       <button class="quantity-input__btn" @click.stop="increment">
@@ -29,15 +31,13 @@ import downIcon from "@/assets/images/components/shared/icon-down.png";
 export default {
   name: "QuantityInput",
   props: {
-    initialQuantity: {
+    value: {
       type: Number,
-      default: 0,
+      default: 1,
     },
   },
   data() {
     return {
-      quantity: this.initialQuantity,
-
       // images
       upIcon,
       downIcon,
@@ -45,11 +45,24 @@ export default {
   },
   methods: {
     increment() {
-      this.quantity++;
+      this.$emit("change", this.value + 1);
     },
     decrement() {
-      if (this.quantity > 1) {
-        this.quantity--;
+      if (this.value > 1) {
+        this.$emit("change", this.value - 1);
+      }
+    },
+    onInput(event) {
+      const newValue = parseInt(event.target.value);
+      if (newValue >= 1) {
+        this.$emit("change", newValue);
+      }
+    },
+    onBlur(event) {
+      const newValue = parseInt(event.target.value);
+      if (!newValue || newValue < 1) {
+        event.target.value = 1;
+        this.$emit("change", 1);
       }
     },
   },
