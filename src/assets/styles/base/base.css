@@ -11,7 +11,6 @@ html, body {
 body {
   background-color: #ffffff;
   color: var(--color-black);
-  font-family: "Inter", Arial, Helvetica, sans-serif;
 }
 
 input,

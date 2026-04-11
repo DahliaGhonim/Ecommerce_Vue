@@ -1,12 +1,22 @@
+.heading-36px-medium,
 .heading,
 .heading-20px-regular {
   font-family: "Inter", Arial, Helvetica, sans-serif;
 }
 
+.heading-36px-medium,
 .heading {
   font-size: 36px;
-  font-weight: 600;
   letter-spacing: 0.04em;
+}
+
+.heading-36px-medium {
+  font-weight: 500;
+  line-height: 30px;
+}
+
+.heading {
+  font-weight: 600;
   line-height: 48px;
 }
 
@@ -17,6 +27,7 @@
   line-height: 20px;
 }
 
+.title-20px-medium,
 .title-16px-medium,
 .title-14px-regular,
 .title-14px-semibold,
@@ -25,10 +36,24 @@
   letter-spacing: 0;
 }
 
+.title-20px-medium {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 28px;
+}
+
+.title-16px-regular,
 .title-16px-medium {
   font-size: 16px;
-  font-weight: 500;
   line-height: 24px;
+}
+
+.title-16px-regular {
+  font-weight: 400;
+}
+
+.title-16px-medium {
+  font-weight: 500;
 }
 
 .title-14px-regular {
@@ -43,8 +68,16 @@
   line-height: 21px;
 }
 
-.title-12px-regular {
+.title-12px-regular,
+.title-12px-medium {
   font-size: 12px;
-  font-weight: 400;
   line-height: 18px;
+}
+
+.title-12px-regular {
+  font-weight: 400;
+}
+
+.title-12px-medium {
+  font-weight: 500;
 }

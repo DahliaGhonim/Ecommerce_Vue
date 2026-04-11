@@ -3,7 +3,7 @@
     <router-link to="/"><AppLogo /></router-link>
 
     <nav>
-      <ul class="header__links">
+      <ul class="header__links title-16px-regular">
         <li><router-link to="/">Home</router-link></li>
         <li><router-link to="/contact">Contact</router-link></li>
         <li><router-link to="/about">About</router-link></li>
@@ -13,7 +13,7 @@
     <div class="header__spacer"></div>
     <div class="header__search">
       <input
-        class="header__search-input"
+        class="header__search-input title-12px-regular"
         id="search"
         placeholder="What are you looking for?"
       />
@@ -30,7 +30,10 @@
         src="/src/assets/images/icons/icon-cart.png"
         alt="cart"
       />
-      <span class="header__cart-badge" v-if="sideCartCount > 0">
+      <span
+        class="header__cart-badge title-12px-regular"
+        v-if="sideCartCount > 0"
+      >
         {{ sideCartCount }}
       </span>
     </div>
@@ -81,11 +84,6 @@ export default {
   gap: 40px; /* Relatively: 540 - (444 + 48) */
   list-style: none;
 
-  font-family: "Poppins", Arial, Helvetica, sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  letter-spacing: 0;
-  line-height: 24px;
   white-space: nowrap;
   margin-left: 60px; /* TODO: figma design deviation (191px) */
   margin-right: 60px; /* TODO: check whether this is correct */
@@ -127,11 +125,6 @@ export default {
 .header__search-input {
   background-color: transparent;
   width: 180px; /* TODO: figma design deviation (153px) */
-  font-family: "Poppins", Arial, Helvetica, sans-serif;
-  font-size: 12px;
-  font-weight: 400;
-  letter-spacing: 0;
-  line-height: 18px;
   outline: none;
   border: none;
 }
@@ -166,11 +159,6 @@ export default {
 
   background-color: var(--color-primary);
   color: var(--color-white);
-  font-family: "Poppins", Arial, Helvetica, sans-serif;
-  font-size: 12px;
-  font-weight: 400;
-  letter-spacing: 0;
-  line-height: 18px;
   width: 16px;
   height: 16px;
   border-radius: 50%;

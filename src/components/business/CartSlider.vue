@@ -8,7 +8,7 @@
     >
       <!-- Cart header -->
       <header class="cart__header">
-        <h2 class="cart__title">Shopping Cart</h2>
+        <h2 class="cart__title heading-36px-medium">Shopping Cart</h2>
         <img
           class="cart__close"
           src="/src/assets/images/icons/icon-close.png"
@@ -19,7 +19,7 @@
       <!-- Cart items -->
       <section class="cart__items">
         <div
-          class="cart__item"
+          class="cart__item title-16px-regular"
           :class="{ 'cart__item--selected': selectedItem === item.id }"
           v-for="item in sideCartItems"
           :key="item.id"
@@ -44,7 +44,7 @@
       </section>
 
       <!-- Cart order -->
-      <section class="cart__order">
+      <section class="cart__order title-16px-regular">
         <div class="cart__order-details">
           <p>Subtotal:</p>
           <p>${{ totalUSD.toFixed(2) }}</p>
@@ -167,9 +167,7 @@ export default {
   bottom: 0;
   right: 0;
 
-  font-family: "Poppins", Arial, Helvetica, sans-serif;
   background-color: #ffffff;
-  letter-spacing: 0;
   width: 540px;
   padding: 41px 0 80px; /* TODO: 80px is by myeself */
 
@@ -193,10 +191,6 @@ export default {
 }
 
 .cart__title {
-  font-size: 36px;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  line-height: 30px;
   margin-left: 31px;
 }
 
@@ -225,10 +219,6 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
 }
 
 .cart__item--selected {
@@ -263,9 +253,6 @@ export default {
 /* *************************************************** */
 
 .cart__order {
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 24px;
   margin: 50px 40px; /* TODO: figma design deviation */
 }
 

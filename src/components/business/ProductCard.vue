@@ -79,7 +79,6 @@ export default {
 
 <style scoped>
 .product-card {
-  font-family: "Poppins", Arial, Helvetica, sans-serif;
   width: 270px; /* TODO: make it reactive */
   height: 322px; /* TODO: make it reactive */
   cursor: pointer;

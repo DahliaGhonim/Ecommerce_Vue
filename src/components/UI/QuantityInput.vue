@@ -1,7 +1,7 @@
 <template>
   <div class="quantity-input">
     <input
-      class="quantity-input__field"
+      class="quantity-input__field title-16px-regular"
       type="number"
       :value="value"
       @input="onInput"
@@ -88,9 +88,6 @@ export default {
 
 .quantity-input__field {
   background-color: transparent;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 24px;
   min-width: 0;
   border: none;
   outline: none;

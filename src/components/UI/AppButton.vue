@@ -1,5 +1,5 @@
 <template>
-  <button class="btn" :type="type">
+  <button class="btn title-16px-medium" :type="type">
     <slot />
   </button>
 </template>
@@ -20,8 +20,6 @@ export default {
 .btn {
   background-color: var(--color-primary);
   color: var(--color-white);
-  font-family: "Poppins", Arial, Helvetica, sans-serif;
-  font-weight: 500;
   padding: 16px 48px;
   border: none;
   border-radius: 4px;

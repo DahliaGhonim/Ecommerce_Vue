@@ -3,13 +3,13 @@
     <!-- Footer copyright section -->
     <div class="footer__main">
       <!-- Column 1: logo + subscribe -->
-      <div class="footer__main-col">
+      <div class="footer__main-col title-16px-regular">
         <AppLogo class="footer__logo" />
-        <h2 class="footer__col-title">Subscribe</h2>
+        <h2 class="footer__col-title title-20px-medium">Subscribe</h2>
         <p class="footer__col-text">Get 10% off your first order</p>
         <div class="footer__send-email">
           <input
-            class="footer__email-input"
+            class="footer__email-input title-16px-regular"
             id="email"
             type="email"
             placeholder="Enter your email"
@@ -22,8 +22,8 @@
       </div>
 
       <!-- Column 2: support -->
-      <div class="footer__main-col">
-        <h2 class="footer__col-title">Support</h2>
+      <div class="footer__main-col title-16px-regular">
+        <h2 class="footer__col-title title-20px-medium">Support</h2>
         <p class="footer__col-text">
           111 Bijoy sarani, Dhaka, DH 1515, Bangladesh.
         </p>
@@ -32,8 +32,8 @@
       </div>
 
       <!-- Column 3: account -->
-      <div class="footer__main-col">
-        <h2 class="footer__col-title">Account</h2>
+      <div class="footer__main-col title-16px-regular">
+        <h2 class="footer__col-title title-20px-medium">Account</h2>
         <ul class="footer__links">
           <li>
             <router-link class="footer__col-link" to="/">
@@ -60,8 +60,8 @@
       </div>
 
       <!-- Column 4: quick link -->
-      <div class="footer__main-col">
-        <h2 class="footer__col-title">Quick Link</h2>
+      <div class="footer__main-col title-16px-regular">
+        <h2 class="footer__col-title title-20px-medium">Quick Link</h2>
         <ul class="footer__links">
           <li>
             <router-link class="footer__col-link" to="/">
@@ -85,10 +85,12 @@
       </div>
 
       <!-- Column 5: download app -->
-      <div class="footer__main-col">
-        <h2 class="footer__col-title">Download App</h2>
+      <div class="footer__main-col title-16px-regular">
+        <h2 class="footer__col-title title-20px-medium">Download App</h2>
         <div>
-          <p class="footer__apps-text">Save $3 with App New User Only</p>
+          <p class="footer__apps-text title-12px-medium">
+            Save $3 with App New User Only
+          </p>
           <div class="footer__apps-wrapper">
             <img
               class="footer__qrcode"
@@ -137,7 +139,7 @@
 
     <!-- Footer copyright section -->
     <div class="footer__copyright">
-      <div class="footer__copyright-content">
+      <div class="footer__copyright-content title-16px-regular">
         <img
           class="footer__copyright-icon"
           src="/src/assets/images/icons/icon-copyright.png"
@@ -160,7 +162,6 @@ export default {
 
 <style scoped>
 .footer {
-  font-family: "Poppins", Arial, Helvetica, sans-serif;
   background-color: var(--color-black);
   color: #ffffff;
   width: 100%;
@@ -176,7 +177,6 @@ export default {
   justify-content: center;
   gap: 60px; /* TODO: figma design deviation (87px) */
 
-  letter-spacing: 0;
   color: var(--color-white);
   width: 100%;
   padding: 0 80px 60px; /* TODO: figma design deviation (135 not 80) */
@@ -185,9 +185,6 @@ export default {
 /* General column styles */
 .footer__main-col {
   max-width: 217px; /* TODO: check if can be reconsidered */
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 24px;
 }
 
 .footer__logo {
@@ -196,9 +193,6 @@ export default {
 }
 
 .footer__col-title {
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 28px;
   margin-bottom: 24px;
 }
 
@@ -237,8 +231,6 @@ export default {
 .footer__email-input {
   background-color: transparent;
   color: rgba(250, 250, 250, 0.8); /* Not specified by Figma design */
-  font-size: 16px;
-  font-weight: 400;
   flex: 1;
   min-width: 0;
   border: none;
@@ -258,9 +250,6 @@ export default {
 
 /* Column 5: download app */
 .footer__apps-text {
-  font-size: 12px;
-  font-weight: 500;
-  line-height: 18px;
   opacity: 0.7;
   margin-bottom: 8px;
 }
@@ -321,11 +310,6 @@ export default {
   align-items: center;
   gap: 6px;
   opacity: 0.6;
-
-  font-size: 16px;
-  font-weight: 400;
-  letter-spacing: 0;
-  line-height: 24px;
 }
 
 .footer__copyright-icon {
