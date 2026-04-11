@@ -28,10 +28,13 @@
 }
 
 .title-20px-medium,
+.title-16px-regular,
 .title-16px-medium,
+.title-16px-semibold,
 .title-14px-regular,
 .title-14px-semibold,
-.title-12px-regular {
+.title-12px-regular,
+.title-12px-medium {
   font-family: "Poppins", Arial, Helvetica, sans-serif;
   letter-spacing: 0;
 }
@@ -43,29 +46,38 @@
 }
 
 .title-16px-regular,
-.title-16px-medium {
+.title-16px-medium,
+.title-16px-semibold {
   font-size: 16px;
-  line-height: 24px;
 }
 
 .title-16px-regular {
   font-weight: 400;
+  line-height: 24px;
 }
 
 .title-16px-medium {
   font-weight: 500;
+  line-height: 24px;
+}
+
+.title-16px-semibold {
+  font-weight: 600;
+  line-height: 20px;
+}
+
+.title-14px-regular,
+.title-14px-semibold {
+  font-size: 14px;
+  line-height: 21px;
 }
 
 .title-14px-regular {
-  font-size: 14px;
   font-weight: 400;
-  line-height: 21px;
 }
 
 .title-14px-semibold {
-  font-size: 14px;
   font-weight: 600;
-  line-height: 21px;
 }
 
 .title-12px-regular,

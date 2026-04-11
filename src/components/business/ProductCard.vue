@@ -79,7 +79,7 @@ export default {
 
 <style scoped>
 .product-card {
-  width: 270px; /* TODO: make it reactive */
+  width: var(--product-card-width);
   height: 322px; /* TODO: make it reactive */
   cursor: pointer;
 }
@@ -90,7 +90,7 @@ export default {
 .product-card__top {
   position: relative;
   background-color: var(--color-gray);
-  width: 270px;
+  width: var(--product-card-width);
   height: 250px;
   border-radius: 4px;
   margin-bottom: 16px;
