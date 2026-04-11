@@ -1,11 +1,11 @@
 .heading-36px-medium,
-.heading,
+.heading-36px-semibold,
 .heading-20px-regular {
   font-family: "Inter", Arial, Helvetica, sans-serif;
 }
 
 .heading-36px-medium,
-.heading {
+.heading-36px-semibold {
   font-size: 36px;
   letter-spacing: 0.04em;
 }
@@ -15,7 +15,7 @@
   line-height: 30px;
 }
 
-.heading {
+.heading-36px-semibold {
   font-weight: 600;
   line-height: 48px;
 }

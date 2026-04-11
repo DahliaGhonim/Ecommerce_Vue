@@ -3,7 +3,7 @@
     <header class="products__header">
       <AppBreadcrumb current="Products" />
       <div class="products__header-main">
-        <h2 class="heading">Explore Our Products</h2>
+        <h2 class="heading-36px-semibold">Explore Our Products</h2>
         <SortSelect />
       </div>
     </header>
