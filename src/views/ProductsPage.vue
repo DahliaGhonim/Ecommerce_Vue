@@ -27,8 +27,8 @@ import { mapGetters, mapActions } from "vuex";
 // Components
 import AppBreadcrumb from "@/components/layout/AppBreadcrumb.vue";
 import SortSelect from "@/components/UI/SortSelect.vue";
-import ProductCard from "@/components/product/ProductCard.vue";
-import AppButton from "@/components/shared/AppButton.vue";
+import ProductCard from "@/components/business/ProductCard.vue";
+import AppButton from "@/components/UI/AppButton.vue";
 
 export default {
   name: "ProductsPage",

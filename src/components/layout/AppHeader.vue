@@ -43,8 +43,8 @@
 import { mapGetters } from "vuex";
 
 // Components
-import AppLogo from "@/components/shared/AppLogo.vue";
-import CartSlider from "@/components/cart/CartSlider.vue";
+import AppLogo from "@/components/UI/AppLogo.vue";
+import CartSlider from "@/components/business/CartSlider.vue";
 
 export default {
   name: "AppHeader",

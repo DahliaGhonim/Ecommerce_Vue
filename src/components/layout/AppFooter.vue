@@ -149,7 +149,7 @@
 </template>
 
 <script>
-import AppLogo from "@/components/shared/AppLogo.vue";
+import AppLogo from "@/components/UI/AppLogo.vue";
 export default {
   name: "AppFooter",
   components: {

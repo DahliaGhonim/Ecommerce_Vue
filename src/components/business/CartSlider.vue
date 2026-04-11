@@ -98,9 +98,9 @@
 import { mapGetters, mapActions } from "vuex";
 
 // Components
-import QuantityInput from "./QuantityInput.vue";
-import RadioInput from "./RadioInput.vue";
-import AppButton from "@/components/shared/AppButton.vue";
+import QuantityInput from "@/components/UI/QuantityInput.vue";
+import RadioInput from "@/components/UI/RadioInput.vue";
+import AppButton from "@/components/UI/AppButton.vue";
 
 // images
 import cancelIcon from "@/assets/images/icons/icon-cancel.png";
