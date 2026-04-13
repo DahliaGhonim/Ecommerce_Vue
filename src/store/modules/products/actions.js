@@ -1,3 +1,6 @@
+import categoryIcons from "./categoryIcons.js";
+import fallbackIcon from "@/assets/images/store/modules/products/default.png";
+
 export default {
   async fetchProducts({ commit }) {
     commit("SET_LOADING", true);
@@ -10,6 +13,29 @@ export default {
       commit("SET_ERROR", error.message);
     } finally {
       commit("SET_LOADING", false);
+    }
+  },
+
+  // Home
+  async fetchCategories({ commit }) {
+    commit("SET_CATEGORIES_LOADING", true);
+    commit("SET_CATEGORIES_ERROR", null);
+    try {
+      const response = await fetch(
+        "https://dummyjson.com/products/category-list"
+      );
+      const data = await response.json();
+
+      const categories = data.map((name) => ({
+        name: name.charAt(0).toUpperCase() + name.slice(1),
+        icon: categoryIcons[name] || fallbackIcon,
+      }));
+
+      commit("SET_BROWSE_CATEGORIES", categories);
+    } catch (error) {
+      commit("SET_CATEGORIES_ERROR", error.message);
+    } finally {
+      commit("SET_CATEGORIES_LOADING", false);
     }
   },
 

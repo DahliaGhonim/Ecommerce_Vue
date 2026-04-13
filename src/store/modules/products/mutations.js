@@ -12,7 +12,24 @@ export default {
     state.error = error;
   },
 
+  ////////////////////////////////////////////////////////////////////
+  // Home
+  ////////////////////////////////////////////////////////////////////
+
+  // Browse categores
+  SET_BROWSE_CATEGORIES(state, categories) {
+    state.browseCategoryList = categories;
+  },
+  SET_CATEGORIES_LOADING(state, value) {
+    state.categoriesLoading = value;
+  },
+  SET_CATEGORIES_ERROR(state, error) {
+    state.categoriesError = error;
+  },
+
+  ////////////////////////////////////////////////////////////////////
   // Cart
+  ////////////////////////////////////////////////////////////////////
   ADD_TO_SIDE_CART(state, product) {
     const existing = state.sideCartItems.find((item) => item.id === product.id);
     if (existing) {
