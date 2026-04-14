@@ -28,6 +28,7 @@
 }
 
 .title-20px-medium,
+.title-20px-semibold,
 .title-16px-regular,
 .title-16px-medium,
 .title-16px-semibold,
@@ -39,10 +40,18 @@
   letter-spacing: 0;
 }
 
-.title-20px-medium {
+.title-20px-medium
+.title-20px-semibold {
   font-size: 20px;
-  font-weight: 500;
   line-height: 28px;
+}
+
+.title-20px-medium {
+  font-weight: 500;
+}
+
+.title-20px-semibold {
+  font-weight: 600;
 }
 
 .title-16px-regular,

@@ -64,16 +64,31 @@
     </section>
 
     <!-- Section: why choose us -->
+    <section class="home__choose-us">
+      <ChooseUs
+        v-for="chooseUs in chooseUsList"
+        :key="chooseUs.id"
+        :chooseUs="chooseUs"
+      />
+    </section>
   </div>
 </template>
 
 <script>
 import { mapGetters, mapActions } from "vuex";
+
+// Components
 import AppHeading from "@/components/UI/AppHeading.vue";
 import AppButton from "@/components/UI/AppButton.vue";
 import AppCarousel from "@/components/UI/AppCarousel.vue";
 import ProductCard from "@/components/business/ProductCard.vue";
 import BrowseCategory from "@/components/UI/BrowseCategory.vue";
+import ChooseUs from "@/components/UI/ChooseUs.vue";
+
+// Images
+import fastDeliveryIcon from "@/assets/images/views/HomePage/fast-delivery.png";
+import customerSerivceIcon from "@/assets/images/views/HomePage/customer-service.png";
+import moneyBackIcon from "@/assets/images/views/HomePage/money-back.png";
 
 export default {
   name: "HomePage",
@@ -83,6 +98,31 @@ export default {
     AppCarousel,
     ProductCard,
     BrowseCategory,
+    ChooseUs,
+  },
+  data() {
+    return {
+      chooseUsList: [
+        {
+          id: 0,
+          icon: fastDeliveryIcon,
+          title: "FREE AND FAST DELIVERY",
+          text: "Free delivery for all orders over $140",
+        },
+        {
+          id: 1,
+          icon: customerSerivceIcon,
+          title: "24/7 CUSTOMER SERVICE",
+          text: "Friendly 24/7 customer support",
+        },
+        {
+          id: 2,
+          icon: moneyBackIcon,
+          title: "MONEY BACK GUARANTEE",
+          text: "We reurn money within 30 days",
+        },
+      ],
+    };
   },
   computed: {
     ...mapGetters("products", [
@@ -140,5 +180,12 @@ export default {
   display: flex;
   align-items: center;
   gap: 30px;
+}
+
+.home__choose-us {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 106px;
 }
 </style>
