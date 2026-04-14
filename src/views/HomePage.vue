@@ -6,7 +6,7 @@
       <AppHeading>Today's</AppHeading>
       <h2 class="home__heading heading-36px-semibold">Flash Sales</h2>
 
-      <AppCarousel>
+      <AppCarousel :fullWidth="true">
         <p v-if="isLoading">Loading...</p>
         <p v-else-if="error">{{ error }}</p>
         <ProductCard
@@ -43,6 +43,26 @@
     <div class="home__separator"></div>
 
     <!-- Section: explore our products -->
+    <section>
+      <AppHeading>Our Products</AppHeading>
+      <h2 class="home__heading heading-36px-semibold">Explore Our Products</h2>
+
+      <AppCarousel :rows="2">
+        <p v-if="isLoading">Loading...</p>
+        <p v-else-if="error">{{ error }}</p>
+        <ProductCard
+          v-else
+          v-for="product in allProducts"
+          :key="product.id"
+          :product="product"
+        />
+      </AppCarousel>
+
+      <router-link to="/products">
+        <AppButton class="home__btn">View All Products</AppButton>
+      </router-link>
+    </section>
+
     <!-- Section: why choose us -->
   </div>
 </template>

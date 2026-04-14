@@ -1,5 +1,5 @@
 <template>
-  <div class="carousel">
+  <div class="carousel" :class="{ 'carousel--full-width': fullWidth }">
     <div class="carousel__controls">
       <button class="carousel__controls-btn" @click="prev">
         <img class="carousel__controls-icon" :src="leftArrow" />
@@ -9,9 +9,13 @@
       </button>
     </div>
 
-    <div class="carousel__track" ref="track">
+    <div
+      class="carousel__track"
+      :class="{ 'carousel__track--grid': rows === 2 }"
+      ref="track"
+    >
       <slot />
-      <div class="carousel__end"></div>
+      <div v-if="fullWidth" class="carousel__end"></div>
     </div>
   </div>
 </template>
@@ -22,6 +26,16 @@ import rightArrow from "@/assets/images/components/shared/icon-right.png";
 
 export default {
   name: "AppCarousel",
+  props: {
+    rows: {
+      type: Number,
+      default: 1,
+    },
+    fullWidth: {
+      type: Boolean,
+      default: false,
+    },
+  },
   data() {
     return {
       // images
@@ -47,6 +61,9 @@ export default {
 <style scoped>
 .carousel {
   position: relative;
+}
+
+.carousel--full-width {
   margin-right: calc(-1 * var(--home-horizontal-margin));
 }
 
@@ -55,19 +72,17 @@ export default {
 /* *************************************************** */
 .carousel__track {
   display: flex;
-  gap: 15px; /* TODO: figma design deviation (30px) */
+  gap: 20px; /* TODO: figma design deviation (30px) */
   overflow-x: auto;
+  overflow-y: clip;
   scroll-snap-type: x proximity;
   scroll-behavior: smooth;
-}
-
-/* Hide scrollbar */
-.carousel__track::-webkit-scrollbar {
-  display: none;
-}
-.carousel__track {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+.carousel__track::-webkit-scrollbar {
+  display: none;
 }
 
 /* Each slot child snaps to start */
@@ -80,15 +95,28 @@ export default {
   flex: 0 0 115px; /* TODO: make it dynamic, not specified by figma */
 }
 
+/* Two rows grid */
+.carousel__track--grid {
+  display: grid;
+  grid-template-rows: repeat(2, auto);
+  grid-auto-flow: column;
+  grid-auto-columns: max-content;
+  gap: 60px 30px;
+}
+
 /* *************************************************** */
 /* Carousel controls */
 /* *************************************************** */
 .carousel__controls {
   position: absolute;
   top: -80px; /* TODO: make it always inline with title */
-  right: 120px; /* TODO: make it always above last card */
+  right: 0;
   display: flex;
   gap: 8px;
+}
+
+.carousel--full-width .carousel__controls {
+  right: 120px; /* TODO: make it always above last card */
 }
 
 .carousel__controls-btn {

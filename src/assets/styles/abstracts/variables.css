@@ -10,7 +10,7 @@
   --color-dark-gray: #423840;
 
   /* Home page */
-  --home-horizontal-margin: 50px; /* TODO: figma design deviation (135px) */
+  --home-horizontal-margin: 60px; /* TODO: figma design deviation (135px) */
 
   /* Product card */
   --product-card-width: 260px;  /* TODO: figma design deviation (270px) */
