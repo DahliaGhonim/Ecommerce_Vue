@@ -17,19 +17,11 @@
         id="search"
         placeholder="What are you looking for?"
       />
-      <img
-        class="header__search-icon"
-        src="/src/assets/images/icons/icon-search.png"
-        alt="search"
-      />
+      <img class="header__search-icon" :src="searchIcon" alt="search" />
     </div>
 
     <div class="header__cart" @click="isCartOpen = true">
-      <img
-        class="header__cart-icon"
-        src="/src/assets/images/icons/icon-cart.png"
-        alt="cart"
-      />
+      <img class="header__cart-icon" :src="cartIcon" alt="cart" />
       <span
         class="header__cart-badge title-12px-regular"
         v-if="sideCartCount > 0"
@@ -49,6 +41,10 @@ import { mapGetters } from "vuex";
 import AppLogo from "@/components/UI/AppLogo.vue";
 import CartSlider from "@/components/business/CartSlider.vue";
 
+// images
+import searchIcon from "@/assets/images/components/shared/icon-search.png";
+import cartIcon from "@/assets/images/components/shared/icon-cart.png";
+
 export default {
   name: "AppHeader",
   components: {
@@ -58,6 +54,10 @@ export default {
   data() {
     return {
       isCartOpen: false,
+
+      // images
+      searchIcon,
+      cartIcon,
     };
   },
   computed: {

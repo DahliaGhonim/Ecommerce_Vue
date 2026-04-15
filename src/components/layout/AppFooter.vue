@@ -14,10 +14,7 @@
             type="email"
             placeholder="Enter your email"
           />
-          <img
-            class="footer__send-icon"
-            src="/src/assets/images/icons/icon-send.png"
-          />
+          <img class="footer__send-icon" :src="iconSend" />
         </div>
       </div>
 
@@ -92,46 +89,25 @@
             Save $3 with App New User Only
           </p>
           <div class="footer__apps-wrapper">
-            <img
-              class="footer__qrcode"
-              src="/src/assets/images/icons/qr-code.png"
-            />
+            <img class="footer__qrcode" :src="qrCode" />
             <div class="footer__apps-links">
-              <img
-                class="footer__app-google"
-                src="/src/assets/images/icons/google-play.png"
-              />
-              <img
-                class="footer__app-apple"
-                src="/src/assets/images/icons/app-store.png"
-              />
+              <img class="footer__app-google" :src="googlePlay" />
+              <img class="footer__app-apple" :src="appStore" />
             </div>
           </div>
         </div>
         <div class="footer__socials">
           <a href="#">
-            <img
-              class="footer__social-icon"
-              src="/src/assets/images/icons/icon-facebook.png"
-            />
+            <img class="footer__social-icon" :src="facebookIcon" />
           </a>
           <a href="#">
-            <img
-              class="footer__social-icon"
-              src="/src/assets/images/icons/icon-twitter.png"
-            />
+            <img class="footer__social-icon" :src="twitterIcon" />
           </a>
           <a href="#">
-            <img
-              class="footer__social-icon"
-              src="/src/assets/images/icons/icon-instagram.png"
-            />
+            <img class="footer__social-icon" :src="instagramIcon" />
           </a>
           <a href="#">
-            <img
-              class="footer__social-icon"
-              src="/src/assets/images/icons/icon-linkedin.png"
-            />
+            <img class="footer__social-icon" :src="linkedinIcon" />
           </a>
         </div>
       </div>
@@ -140,10 +116,7 @@
     <!-- Footer copyright section -->
     <div class="footer__copyright">
       <div class="footer__copyright-content title-16px-regular">
-        <img
-          class="footer__copyright-icon"
-          src="/src/assets/images/icons/icon-copyright.png"
-        />
+        <img class="footer__copyright-icon" :src="copyrightIcon" />
         <p>Copyright Rimel 2022. All right reserved</p>
       </div>
     </div>
@@ -152,10 +125,36 @@
 
 <script>
 import AppLogo from "@/components/UI/AppLogo.vue";
+
+// images
+import iconSend from "@/assets/images/components/shared/icon-send.png";
+import qrCode from "@/assets/images/components/footer/qr-code.png";
+import googlePlay from "@/assets/images/components/footer/google-play.png";
+import appStore from "@/assets/images/components/footer/app-store.png";
+import facebookIcon from "@/assets/images/components/footer/icon-facebook.png";
+import twitterIcon from "@/assets/images/components/footer/icon-twitter.png";
+import instagramIcon from "@/assets/images/components/footer/icon-instagram.png";
+import linkedinIcon from "@/assets/images/components/footer/icon-instagram.png";
+import copyrightIcon from "@/assets/images/components/footer/icon-copyright.png";
+
 export default {
   name: "AppFooter",
   components: {
     AppLogo,
+  },
+  data() {
+    return {
+      // images
+      iconSend,
+      qrCode,
+      googlePlay,
+      appStore,
+      facebookIcon,
+      twitterIcon,
+      instagramIcon,
+      linkedinIcon,
+      copyrightIcon,
+    };
   },
 };
 </script>

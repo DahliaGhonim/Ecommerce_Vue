@@ -9,11 +9,7 @@
       <!-- Cart header -->
       <header class="cart__header">
         <h2 class="cart__title heading-36px-medium">Shopping Cart</h2>
-        <img
-          class="cart__close"
-          src="/src/assets/images/icons/icon-close.png"
-          @click="closeCart"
-        />
+        <img class="cart__close" :src="closeIcon" @click="closeCart" />
       </header>
 
       <!-- Cart items -->
@@ -103,6 +99,7 @@ import RadioInput from "@/components/UI/RadioInput.vue";
 import AppButton from "@/components/UI/AppButton.vue";
 
 // images
+import closeIcon from "@/assets/images/components/shared/icon-close.png";
 import cancelIcon from "@/assets/images/icons/icon-cancel.png";
 import Bkash from "@/assets/images/icons/payment_methods/Bkash.png";
 import Visa from "@/assets/images/icons/payment_methods/Visa.png";
@@ -126,6 +123,7 @@ export default {
     return {
       selectedItem: null,
       // images
+      closeIcon,
       cancelIcon,
       Bkash,
       Visa,
