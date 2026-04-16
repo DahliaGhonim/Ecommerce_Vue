@@ -1,14 +1,14 @@
 <template>
   <div class="product-card">
-    <div class="product-card__top">
+    <div class="product-card__top" @click="goToProduct">
       <div class="product-card__img-wrapper">
         <img class="product-card__img" :src="product.thumbnail" />
       </div>
       <div class="product-card__top-right">
-        <div class="product-card__top-icon">
+        <div class="product-card__top-icon" @click.stop>
           <img class="product-card__heart" :src="heartIcon" />
         </div>
-        <div class="product-card__top-icon">
+        <div class="product-card__top-icon" @click.stop>
           <img class="product-card__eye" :src="eyeIcon" />
         </div>
       </div>
@@ -31,9 +31,11 @@
         <p>Add To Cart</p>
       </div>
     </div>
-    <p class="title-16px-medium">{{ product.title }}</p>
+    <p class="title-16px-medium product-card__title" @click="goToProduct">
+      {{ product.title }}
+    </p>
     <div class="product-card__buttom">
-      <p class="title-16px-medium product-card__price">{{ product.price }}</p>
+      <p class="title-16px-medium product-card__price">${{ product.price }}</p>
       <img class="product-card__rating" :src="threeStars" />
       <p class="title-14px-semibold product-card__rating-count">(35)</p>
     </div>
@@ -73,6 +75,12 @@ export default {
     handleAddToCart() {
       this.addToSideCart(this.product);
     },
+    goToProduct() {
+      this.$router.push({
+        name: "product_details",
+        params: { id: this.product.id },
+      });
+    },
   },
 };
 </script>
@@ -81,7 +89,6 @@ export default {
 .product-card {
   width: var(--product-card-width);
   height: 322px; /* TODO: make it reactive */
-  cursor: pointer;
 }
 
 /* *************************************************** */
@@ -94,6 +101,7 @@ export default {
   height: 250px;
   border-radius: 4px;
   margin-bottom: 16px;
+  cursor: pointer;
 
   display: flex;
   align-items: center;
@@ -187,6 +195,10 @@ export default {
 /* *************************************************** */
 /* Product card bottom section */
 /* *************************************************** */
+
+.product-card__title {
+  cursor: pointer;
+}
 
 .product-card__buttom {
   margin-top: 8px;
