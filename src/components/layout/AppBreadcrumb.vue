@@ -1,7 +1,13 @@
 <template>
   <nav class="breadcrumb title-14px-regular">
-    <router-link class="breadcrumb__home" to="/">Home</router-link>
+    <router-link class="breadcrumb__link" to="/">Home</router-link>
     <span class="breadcrumb__separator">/</span>
+
+    <router-link v-if="prev" class="breadcrumb__link" :to="prevLink">
+      {{ prev }}
+    </router-link>
+    <span v-if="prev" class="breadcrumb__separator">/</span>
+
     <span class="breadcrumb__current">{{ current }}</span>
   </nav>
 </template>
@@ -14,6 +20,12 @@ export default {
       type: String,
       required: true,
     },
+    prev: {
+      type: String,
+    },
+    prevLink: {
+      type: String,
+    }
   },
 };
 </script>
@@ -25,12 +37,12 @@ export default {
   gap: 12px;
 }
 
-.breadcrumb__home {
+.breadcrumb__link {
   color: rgba(0, 0, 0, 0.5);
   text-decoration: none;
 }
 
-.breadcrumb__home:visited {
+.breadcrumb__link:visited {
   color: rgba(0, 0, 0, 0.5);
 }
 

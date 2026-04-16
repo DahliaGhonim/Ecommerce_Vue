@@ -3,6 +3,11 @@ export default {
   isLoading: (state) => state.isLoading,
   error: (state) => state.error,
 
+  // Product Details
+  selectedProduct: (state) => state.selectedProduct,
+  selectedProductLoading: (state) => state.selectedProductLoading,
+  selectedProductError: (state) => state.selectedProductError,
+
   // Home
   allBrowseCategoris: (state) => state.browseCategoryList,
   categoriesLoading: (state) => state.categoriesLoading,

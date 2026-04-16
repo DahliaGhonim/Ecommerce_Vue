@@ -16,6 +16,23 @@ export default {
     }
   },
 
+  // Product Details
+  async fetchProductById({ commit }, id) {
+    commit("SET_SELECTED_PRODUCT_LOADING", true);
+    commit("SET_SELECTED_PRODUCT_ERROR", null);
+    commit("SET_SELECTED_PRODUCT", null);
+    try {
+      const response = await fetch(`https://dummyjson.com/products/${id}`);
+      if (!response.ok) throw new Error("Product not found");
+      const data = await response.json();
+      commit("SET_SELECTED_PRODUCT", data);
+    } catch (error) {
+      commit("SET_SELECTED_PRODUCT_ERROR", error.message);
+    } finally {
+      commit("SET_SELECTED_PRODUCT_LOADING", false);
+    }
+  },
+
   // Home
   async fetchCategories({ commit }) {
     commit("SET_CATEGORIES_LOADING", true);

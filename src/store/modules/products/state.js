@@ -3,6 +3,11 @@ export default {
   isLoading: false,
   error: null,
 
+  // Product Details
+  selectedProduct: null,
+  selectedProductLoading: false,
+  selectedProductError: null,
+
   // Home
   browseCategoryList: [],
   categoriesLoading: false,
