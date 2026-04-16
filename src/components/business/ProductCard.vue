@@ -46,8 +46,8 @@
 import { mapActions } from "vuex";
 
 // images
-import heartIcon from "@/assets/images/components/product/icon-heart.png";
-import eyeIcon from "@/assets/images/components/product/icon-eye.png";
+import heartIcon from "@/assets/images/components/shared/icon-heart.png";
+import eyeIcon from "@/assets/images/components/shared/icon-eye.png";
 import threeStars from "@/assets/images/components/product/stars-3.png";
 
 export default {
@@ -164,7 +164,7 @@ export default {
 }
 
 .product-card__new {
-  background-color: var(--color-new);
+  background-color: var(--color-green);
 }
 
 .product-card__discount {
