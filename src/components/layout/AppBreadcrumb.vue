@@ -25,7 +25,7 @@ export default {
     },
     prevLink: {
       type: String,
-    }
+    },
   },
 };
 </script>

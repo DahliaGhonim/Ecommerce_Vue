@@ -28,19 +28,13 @@ export default {
     ProductCard,
   },
   computed: {
-    ...mapGetters("products", [
-      "allProducts",
-      "isLoading",
-      "error",
-    ]),
+    ...mapGetters("products", ["allProducts", "isLoading", "error"]),
     products() {
       return this.allProducts.slice(0, 4);
     },
   },
   methods: {
-    ...mapActions("products", [
-      "fetchProducts",
-    ]),
+    ...mapActions("products", ["fetchProducts"]),
   },
   created() {
     if (this.allProducts.length === 0) {

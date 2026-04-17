@@ -17,7 +17,9 @@
         :product="product"
       />
     </div>
-    <AppButton class="products__load-btn" v-if="!isLoading && !error">Load more ...</AppButton>
+    <AppButton class="products__load-btn" v-if="!isLoading && !error">
+      Load more ...
+    </AppButton>
   </div>
 </template>
 

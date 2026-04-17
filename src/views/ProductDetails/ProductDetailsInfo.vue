@@ -1,6 +1,9 @@
 <template>
   <section class="product-details__main">
-    <p v-if="selectedProductLoading" class="product-details__state-msg title-14px-regular">
+    <p
+      v-if="selectedProductLoading"
+      class="product-details__state-msg title-14px-regular"
+    >
       Loading product...
     </p>
     <p
@@ -19,8 +22,7 @@
             :key="index"
             class="product-details__thumbnail"
             :class="{
-              'product-details__thumbnail--active':
-                activeImageIndex === index,
+              'product-details__thumbnail--active': activeImageIndex === index,
             }"
             @click="activeImageIndex = index"
           >
@@ -54,14 +56,13 @@
                 star <= Math.round(selectedProduct.rating)
                   ? 'product-details__star--filled'
                   : 'product-details__star--empty'
-              ">
+              "
+            >
               ★
             </span>
           </div>
           <span class="title-14px-regular product-details__review-count">
-            ({{
-              selectedProduct.reviews ? selectedProduct.reviews.length : 0
-            }}
+            ({{ selectedProduct.reviews ? selectedProduct.reviews.length : 0 }}
             Reviews)
           </span>
           <span class="product-details__divider">|</span>
@@ -79,9 +80,7 @@
 
         <!-- Price Row -->
         <div class="product-details__price-row">
-          <span class="heading-24px-regular">
-            ${{ discountedPrice }}
-          </span>
+          <span class="heading-24px-regular"> ${{ discountedPrice }} </span>
           <span
             v-if="selectedProduct.discountPercentage"
             class="product-details__discount-badge title-12px-regular"
@@ -145,7 +144,10 @@
         <div class="product-details__delivery">
           <div class="product-details__delivery-card">
             <div class="product-details__delivery-icon">
-              <img class="product-details__delivery-icon-img" :src="returnIcon" />
+              <img
+                class="product-details__delivery-icon-img"
+                :src="returnIcon"
+              />
             </div>
             <div class="product-details__delivery-text">
               <p class="title-16px-medium">Free Delivery</p>
@@ -159,7 +161,10 @@
 
           <div class="product-details__delivery-card">
             <div class="product-details__delivery-icon">
-              <img class="product-details__delivery-icon-img" :src="deliveryIcon" />
+              <img
+                class="product-details__delivery-icon-img"
+                :src="deliveryIcon"
+              />
             </div>
             <div class="product-details__delivery-text">
               <p class="title-16px-medium">Return Delivery</p>
@@ -201,7 +206,7 @@ export default {
       deliveryIcon,
     };
   },
-    computed: {
+  computed: {
     ...mapGetters("products", [
       "selectedProduct",
       "selectedProductLoading",
@@ -215,10 +220,7 @@ export default {
     },
   },
   methods: {
-    ...mapActions("products", [
-      "fetchProductById",
-      "addToSideCart",
-    ]),
+    ...mapActions("products", ["fetchProductById", "addToSideCart"]),
     increaseQty() {
       this.quantity++;
     },
@@ -248,7 +250,7 @@ export default {
       this.fetchProductById(newId);
     },
   },
-}
+};
 </script>
 
 <style scoped>
@@ -562,4 +564,3 @@ export default {
   text-decoration: underline;
 }
 </style>
-

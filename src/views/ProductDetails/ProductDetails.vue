@@ -10,7 +10,6 @@
 
     <ProductDetailsInfo />
     <MoreProducts />
-
   </div>
 </template>
 
@@ -48,7 +47,6 @@ export default {
 }
 
 .product-details__breadcrumb {
-  margin-bottom: 40px; 
+  margin-bottom: 40px;
 }
-
 </style>
