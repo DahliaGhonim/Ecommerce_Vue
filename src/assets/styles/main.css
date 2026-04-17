@@ -2,6 +2,12 @@
 @import "./base/base.css";
 @import "./base/typography.css";
 
+/* Views */
+@import "./views/HomePage/home-page.css";
+@import "./views/HomePage/flash-sales.css";
+@import "./views/HomePage/browse-categories.css";
+@import "./views/HomePage/explore-products.css";
+
 /* Components */
 @import "./components/layout/AppHeader/app-header.css";
 @import "./components//layout/AppFooter/app-footer.css";

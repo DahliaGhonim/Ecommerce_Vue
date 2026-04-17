@@ -1,0 +1,16 @@
+.home {
+  margin: 66px var(--home-horizontal-margin) 150px;
+}
+
+.home__separator {
+  width: 100%;
+  border: 0.5px solid rgba(0, 0, 0, 0.3);
+  margin: 69px 0;
+}
+
+.home__choose-us {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 106px;
+}

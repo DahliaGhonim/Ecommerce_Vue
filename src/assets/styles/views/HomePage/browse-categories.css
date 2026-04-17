@@ -1,0 +1,9 @@
+.browse-categories__heading {
+  margin: 24px 0 31px;
+}
+
+.browse-categories__main {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}

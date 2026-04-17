@@ -1,0 +1,12 @@
+.explore-products a {
+  text-decoration: none;
+}
+
+.explore-products__heading {
+  margin: 24px 0 31px;
+}
+
+.explore-products__btn {
+  display: block;
+  margin: 60px auto;
+}

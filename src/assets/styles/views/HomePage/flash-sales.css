@@ -1,0 +1,12 @@
+.flash-sales a {
+  text-decoration: none;
+}
+
+.flash-sales__heading {
+  margin: 24px 0 31px;
+}
+
+.flash-sales__btn {
+  display: block;
+  margin: 60px auto;
+}
