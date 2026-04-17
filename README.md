@@ -1,46 +1,92 @@
-# .
+# Exclusive — E-Commerce Web App
 
-This template should help get you started developing with Vue 3 in Vite.
+A frontend e-commerce web application built as part of an academy internship project.
 
-## Recommended IDE Setup
+🔗 **Live Demo:** [ecommerce-vue-by-dahlia.netlify.app](https://ecommerce-vue-by-dahlia.netlify.app/)
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+---
 
-## Type Support for `.vue` Imports in TS
+## Tech Stack
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+- **Vue 2** — frontend framework
+- **Vuex 3** — state management
+- **Vue Router 3** — client-side routing
+- **CSS** — styling (no CSS framework)
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+## Conventions
 
-1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+- **BEM** — CSS naming methodology
+- **7-in-1 pattern** — styles folder organization
+- **Layer-based architecture** — components folder structure (`business`, `UI`, `layout`)
 
-## Customize configuration
+---
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+## Pages
 
-## Project Setup
+| Page | Route |
+|------|-------|
+| Home | `/` |
+| Products | `/products` |
+| Product Details | `/product/:id` |
+| Contact | `/contact` |
+| About | `/about` |
+| Not Found | `*` |
 
-```sh
+---
+
+## Project Structure
+
+```
+src/
+├── assets/
+│   ├── images/
+│   └── styles/
+│       ├── abstracts/       # CSS variables
+│       ├── base/            # Reset, typography
+│       ├── components/      # Component styles
+│       └── main.css         # Entry point
+├── components/
+│   ├── business/            # Feature components (ProductCard, CartSlider)
+│   ├── layout/              # Structural components (AppHeader, AppFooter, AppBreadcrumb)
+│   └── UI/                  # Reusable UI components (AppButton, AppCarousel, AppHeading...)
+├── layout/
+│   └── AppLayout.vue
+├── router/
+│   └── index.js
+├── store/
+│   ├── modules/
+│   │   └── products/        # state, getters, mutations, actions
+│   └── index.js
+└── views/
+    ├── HomePage.vue
+    ├── ProductsPage.vue
+    ├── ProductDetails/
+    ├── ContactUs.vue
+    ├── AboutUs.vue
+    └── NotFound.vue
+```
+
+---
+
+## Key Features
+
+- Product listing fetched from [DummyJSON API](https://dummyjson.com/docs/products)
+- Product details page with image gallery and quantity control
+- Sliding cart sidebar with item management and order summary
+- Browse by category section
+- Horizontal carousels (single-row and two-row)
+
+---
+
+## Getting Started
+
+```bash
+# Install dependencies
 npm install
-```
 
-### Compile and Hot-Reload for Development
-
-```sh
+# Run development server
 npm run dev
-```
 
-### Type-Check, Compile and Minify for Production
-
-```sh
+# Build for production
 npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
 ```
