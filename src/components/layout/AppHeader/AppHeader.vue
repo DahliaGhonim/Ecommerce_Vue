@@ -17,7 +17,7 @@ import AppLogo from "@/components/UI/AppLogo.vue";
 import HeaderNav from "./HeaderNav.vue";
 import HeaderSearch from "./HeaderSearch.vue";
 import HeaderCart from "./HeaderCart.vue";
-import CartSlider from "@/components/business/CartSlider.vue";
+import CartSlider from "@/components/business/CartSlider/CartSlider.vue";
 
 export default {
   name: "AppHeader",
