@@ -1,8 +1,8 @@
 <template>
   <nav class="headernav">
     <ul class="headernav__links title-16px-regular">
-      <li v-for="(link, index) in links" :key="index" :to="link.path">
-        {{ link.title }}
+      <li v-for="(link, index) in links" :key="index">
+        <router-link :to="link.path">{{ link.title }}</router-link>
       </li>
     </ul>
   </nav>
