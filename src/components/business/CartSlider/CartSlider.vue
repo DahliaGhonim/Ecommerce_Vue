@@ -73,8 +73,3 @@ export default {
   },
 };
 </script>
-
-<style
-  scoped
-  src="@/assets/styles/components/business/CartSlider/cart-slider.css"
-></style>

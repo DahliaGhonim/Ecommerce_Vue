@@ -35,8 +35,3 @@ export default {
   },
 };
 </script>
-
-<style
-  scoped
-  src="@/assets/styles/components/layout/AppHeader/app-header.css"
-></style>

@@ -1,3 +1,12 @@
 @import "./abstracts/variables.css";
 @import "./base/base.css";
 @import "./base/typography.css";
+
+/* Components */
+@import "./components/layout/AppHeader/app-header.css";
+@import "./components//layout/AppFooter/app-footer.css";
+@import "./components//layout/AppFooter/footer-subscribe.css";
+
+@import "./components/business/CartSlider/cart-slider.css";
+@import "./components/business/CartSlider/cart-item.css";
+@import "./components/business/CartSlider/cart-payment.css";

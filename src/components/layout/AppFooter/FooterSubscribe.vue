@@ -31,8 +31,3 @@ export default {
   },
 };
 </script>
-
-<style
-  scoped
-  src="@/assets/styles/components/layout/AppFooter/footer-subscribe.css"
-></style>

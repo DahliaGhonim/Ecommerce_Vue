@@ -61,8 +61,3 @@ export default {
   },
 };
 </script>
-
-<style
-  scoped
-  src="@/assets/styles/components/business/CartSlider/cart-item.css"
-></style>
