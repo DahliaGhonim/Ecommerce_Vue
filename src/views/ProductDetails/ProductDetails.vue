@@ -14,6 +14,7 @@
 </template>
 
 <script>
+// TODO: remove selectedProduct & fetchProduct
 import { mapGetters, mapActions } from "vuex";
 
 // Components
@@ -37,6 +38,11 @@ export default {
   created() {
     const id = this.$route.params.id;
     this.fetchProductById(id);
+  },
+  watch: {
+    "$route.params.id"(newId) {
+      this.fetchProductById(newId);
+    },
   },
 };
 </script>
