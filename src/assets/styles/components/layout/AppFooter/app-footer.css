@@ -1,0 +1,17 @@
+.footer {
+  background-color: var(--color-black);
+  color: #ffffff;
+  width: 100%;
+  padding: 80px 0 24px;
+}
+
+.footer__main {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 60px; /* TODO: figma design deviation (87px) */
+
+  color: var(--color-white);
+  width: 100%;
+  padding: 0 80px 60px; /* TODO: figma design deviation (135 not 80) */
+}

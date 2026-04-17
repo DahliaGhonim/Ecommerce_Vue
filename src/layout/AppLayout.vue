@@ -10,7 +10,7 @@
 
 <script>
 import AppHeader from "@/components/layout/AppHeader/AppHeader.vue";
-import AppFooter from "@/components/layout/AppFooter.vue";
+import AppFooter from "@/components/layout/AppFooter/AppFooter.vue";
 
 export default {
   name: "AppLayout",
