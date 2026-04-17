@@ -1,14 +1,7 @@
 <template>
   <header class="header">
     <router-link to="/"><AppLogo /></router-link>
-
-    <nav>
-      <ul class="header__links title-16px-regular">
-        <li><router-link to="/">Home</router-link></li>
-        <li><router-link to="/contact">Contact</router-link></li>
-        <li><router-link to="/about">About</router-link></li>
-      </ul>
-    </nav>
+    <HeaderNav />
 
     <div class="header__spacer"></div>
     <div class="header__search">
@@ -39,6 +32,7 @@ import { mapGetters } from "vuex";
 
 // Components
 import AppLogo from "@/components/UI/AppLogo.vue";
+import HeaderNav from "./HeaderNav.vue";
 import CartSlider from "@/components/business/CartSlider.vue";
 
 // images
@@ -49,6 +43,7 @@ export default {
   name: "AppHeader",
   components: {
     AppLogo,
+    HeaderNav,
     CartSlider,
   },
   data() {
@@ -77,32 +72,13 @@ export default {
   align-items: center;
 }
 
-/* Nav */
-.header__links {
-  display: flex;
-  align-items: center;
-  gap: 40px; /* Relatively: 540 - (444 + 48) */
-  list-style: none;
-
-  white-space: nowrap;
-  margin-left: 60px; /* TODO: figma design deviation (191px) */
-  margin-right: 60px; /* TODO: check whether this is correct */
-}
-
-.header__links a,
 .header a {
   text-decoration: none;
   color: var(--color-black);
 }
 
-.header__links a:visited,
 .header a:visited {
   color: var(--color-black);
-}
-
-.header__links a.router-link-exact-active {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
-  padding-bottom: 2px;
 }
 
 .header__spacer {
