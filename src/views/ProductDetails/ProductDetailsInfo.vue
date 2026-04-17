@@ -1,216 +1,184 @@
 <template>
-  <div class="product-details">
-    <AppBreadcrumb
-      v-if="selectedProduct"
-      :current="selectedProduct.title"
-      :prev="'Products'"
-      :prevLink="'/products'"
-      class="product-details__breadcrumb"
-    />
+  <section class="product-details__main">
+    <p v-if="selectedProductLoading" class="product-details__state-msg title-14px-regular">
+      Loading product...
+    </p>
+    <p
+      v-else-if="selectedProductError"
+      class="product-details__state-msg product-details__state-msg--error title-14px-regular"
+    >
+      {{ selectedProductError }}
+    </p>
 
-    <!-- ===== Main Section ===== -->
-    <section class="product-details__main">
-      <p v-if="selectedProductLoading" class="product-details__state-msg title-14px-regular">
-        Loading product...
-      </p>
-      <p
-        v-else-if="selectedProductError"
-        class="product-details__state-msg product-details__state-msg--error title-14px-regular"
-      >
-        {{ selectedProductError }}
-      </p>
-
-      <div v-else-if="selectedProduct" class="product-details__layout">
-        <!-- Left: Thumbnail Gallery -->
-        <div class="product-details__gallery">
-          <div class="product-details__thumbnails">
-            <div
-              v-for="(img, index) in selectedProduct.images.slice(0, 4)"
-              :key="index"
-              class="product-details__thumbnail"
-              :class="{
-                'product-details__thumbnail--active':
-                  activeImageIndex === index,
-              }"
-              @click="activeImageIndex = index"
-            >
-              <img :src="img" />
-            </div>
-          </div>
-
-          <!-- Main Image -->
-          <div class="product-details__main-img-wrapper">
-            <img
-              class="product-details__main-img"
-              :src="selectedProduct.images[activeImageIndex]"
-            />
+    <div v-else-if="selectedProduct" class="product-details__layout">
+      <!-- Left: Thumbnail Gallery -->
+      <div class="product-details__gallery">
+        <div class="product-details__thumbnails">
+          <div
+            v-for="(img, index) in selectedProduct.images.slice(0, 4)"
+            :key="index"
+            class="product-details__thumbnail"
+            :class="{
+              'product-details__thumbnail--active':
+                activeImageIndex === index,
+            }"
+            @click="activeImageIndex = index"
+          >
+            <img :src="img" />
           </div>
         </div>
 
-        <!-- Right: Product Info -->
-        <div class="product-details__info">
-          <h1 class="heading-24px-semibold">
-            {{ selectedProduct.title }}
-          </h1>
+        <!-- Main Image -->
+        <div class="product-details__main-img-wrapper">
+          <img
+            class="product-details__main-img"
+            :src="selectedProduct.images[activeImageIndex]"
+          />
+        </div>
+      </div>
 
-          <!-- Rating Row -->
-          <div class="product-details__rating-row">
-            <div class="product-details__stars">
-              <span
-                v-for="star in 5"
-                :key="star"
-                class="product-details__star"
-                :class="
-                  star <= Math.round(selectedProduct.rating)
-                    ? 'product-details__star--filled'
-                    : 'product-details__star--empty'
-                ">
-                ★
-              </span>
-            </div>
-            <span class="title-14px-regular product-details__review-count">
-              ({{
-                selectedProduct.reviews ? selectedProduct.reviews.length : 0
-              }}
-              Reviews)
-            </span>
-            <span class="product-details__divider">|</span>
+      <!-- Right: Product Info -->
+      <div class="product-details__info">
+        <h1 class="heading-24px-semibold">
+          {{ selectedProduct.title }}
+        </h1>
+
+        <!-- Rating Row -->
+        <div class="product-details__rating-row">
+          <div class="product-details__stars">
             <span
-              class="title-14px-regular product-details__stock"
+              v-for="star in 5"
+              :key="star"
+              class="product-details__star"
               :class="
-                selectedProduct.stock > 0
-                  ? 'product-details__stock--in'
-                  : 'product-details__stock--out'
-              "
-            >
-              {{ selectedProduct.stock > 0 ? "In Stock" : "Out of Stock" }}
+                star <= Math.round(selectedProduct.rating)
+                  ? 'product-details__star--filled'
+                  : 'product-details__star--empty'
+              ">
+              ★
             </span>
           </div>
+          <span class="title-14px-regular product-details__review-count">
+            ({{
+              selectedProduct.reviews ? selectedProduct.reviews.length : 0
+            }}
+            Reviews)
+          </span>
+          <span class="product-details__divider">|</span>
+          <span
+            class="title-14px-regular product-details__stock"
+            :class="
+              selectedProduct.stock > 0
+                ? 'product-details__stock--in'
+                : 'product-details__stock--out'
+            "
+          >
+            {{ selectedProduct.stock > 0 ? "In Stock" : "Out of Stock" }}
+          </span>
+        </div>
 
-          <!-- Price Row -->
-          <div class="product-details__price-row">
-            <span class="heading-24px-regular">
-              ${{ discountedPrice }}
-            </span>
-            <span
-              v-if="selectedProduct.discountPercentage"
-              class="product-details__discount-badge title-12px-regular"
+        <!-- Price Row -->
+        <div class="product-details__price-row">
+          <span class="heading-24px-regular">
+            ${{ discountedPrice }}
+          </span>
+          <span
+            v-if="selectedProduct.discountPercentage"
+            class="product-details__discount-badge title-12px-regular"
+          >
+            -{{ Math.round(selectedProduct.discountPercentage) }}%
+          </span>
+        </div>
+
+        <!-- Description -->
+        <p class="title-14px-regular product-details__description">
+          {{ selectedProduct.description }}
+        </p>
+
+        <hr class="product-details__divider-line" />
+
+        <!-- Category -->
+        <div class="product-details__category-row heading-20px-regular">
+          <span>Category:</span>
+          <router-link
+            :to="'/products?category=' + selectedProduct.category"
+            class="product-details__category-link"
+          >
+            {{ capitalize(selectedProduct.category) }}
+          </router-link>
+        </div>
+
+        <!-- Quantity + Buy Now + Wishlist -->
+        <div class="product-details__actions title-20px-medium">
+          <div class="product-details__qty-control">
+            <button
+              class="product-details__qty-btn"
+              @click="decreaseQty"
+              :disabled="quantity <= 1"
             >
-              -{{ Math.round(selectedProduct.discountPercentage) }}%
-            </span>
-          </div>
-
-          <!-- Description -->
-          <p class="title-14px-regular product-details__description">
-            {{ selectedProduct.description }}
-          </p>
-
-          <hr class="product-details__divider-line" />
-
-          <!-- Category -->
-          <div class="product-details__category-row heading-20px-regular">
-            <span>Category:</span>
-            <router-link
-              :to="'/products?category=' + selectedProduct.category"
-              class="product-details__category-link"
-            >
-              {{ capitalize(selectedProduct.category) }}
-            </router-link>
-          </div>
-
-          <!-- Quantity + Buy Now + Wishlist -->
-          <div class="product-details__actions title-20px-medium">
-            <div class="product-details__qty-control">
-              <button
-                class="product-details__qty-btn"
-                @click="decreaseQty"
-                :disabled="quantity <= 1"
-              >
-                −
-              </button>
-              <span class="product-details__qty-value">
-                {{ quantity }}
-              </span>
-              <AppButton
-                class="product-details__qty-btn-add"
-                @click.native="increaseQty"
-              >
-                +
-              </AppButton>
-            </div>
-
-            <AppButton
-              class="product-details__buy-btn"
-              @click.native="handleBuyNow"
-            >
-              Buy Now
-            </AppButton>
-
-            <button class="product-details__wishlist-btn">
-              <img :src="heartIcon" />
+              −
             </button>
+            <span class="product-details__qty-value">
+              {{ quantity }}
+            </span>
+            <AppButton
+              class="product-details__qty-btn-add"
+              @click.native="increaseQty"
+            >
+              +
+            </AppButton>
           </div>
 
-          <!-- Delivery Info Cards -->
-          <div class="product-details__delivery">
-            <div class="product-details__delivery-card">
-              <div class="product-details__delivery-icon">
-                <img class="product-details__delivery-icon-img" :src="returnIcon" />
-              </div>
-              <div class="product-details__delivery-text">
-                <p class="title-16px-medium">Free Delivery</p>
-                <p class="title-12px-medium">
-                  <a href="#" class="product-details__details-link">
-                    Enter your postal code for Delivery Availability
-                  </a>
-                </p>
-              </div>
-            </div>
+          <AppButton
+            class="product-details__buy-btn"
+            @click.native="handleBuyNow"
+          >
+            Buy Now
+          </AppButton>
 
-            <div class="product-details__delivery-card">
-              <div class="product-details__delivery-icon">
-                <img class="product-details__delivery-icon-img" :src="deliveryIcon" />
-              </div>
-              <div class="product-details__delivery-text">
-                <p class="title-16px-medium">Return Delivery</p>
-                <p class="title-12px-medium">
-                  Free 30 Days Delivery Returns.
-                  <a href="#" class="product-details__details-link">Details</a>
-                </p>
-              </div>
+          <button class="product-details__wishlist-btn">
+            <img :src="heartIcon" />
+          </button>
+        </div>
+
+        <!-- Delivery Info Cards -->
+        <div class="product-details__delivery">
+          <div class="product-details__delivery-card">
+            <div class="product-details__delivery-icon">
+              <img class="product-details__delivery-icon-img" :src="returnIcon" />
+            </div>
+            <div class="product-details__delivery-text">
+              <p class="title-16px-medium">Free Delivery</p>
+              <p class="title-12px-medium">
+                <a href="#" class="product-details__details-link">
+                  Enter your postal code for Delivery Availability
+                </a>
+              </p>
+            </div>
+          </div>
+
+          <div class="product-details__delivery-card">
+            <div class="product-details__delivery-icon">
+              <img class="product-details__delivery-icon-img" :src="deliveryIcon" />
+            </div>
+            <div class="product-details__delivery-text">
+              <p class="title-16px-medium">Return Delivery</p>
+              <p class="title-12px-medium">
+                Free 30 Days Delivery Returns.
+                <a href="#" class="product-details__details-link">Details</a>
+              </p>
             </div>
           </div>
         </div>
       </div>
-    </section>
-
-    <!-- ===== More Products Section ===== -->
-    <section>
-      <AppHeading class="products-details__app-heading">
-        More of this category
-      </AppHeading>
-
-      <p v-if="isLoading">Loading...</p>
-      <p v-else-if="error">{{ error }}</p>
-      <div v-else class="product-details__more-products">
-        <ProductCard
-          v-for="product in products"
-          :key="product.id"
-          :product="product"
-        />
-      </div>
-    </section>
-  </div>
+    </div>
+  </section>
 </template>
 
 <script>
 import { mapGetters, mapActions } from "vuex";
 
-// Components
 import AppButton from "@/components/UI/AppButton.vue";
-import AppHeading from "@/components/UI/AppHeading.vue";
-import AppBreadcrumb from "@/components/layout/AppBreadcrumb.vue";
-import ProductCard from "@/components/business/ProductCard.vue";
 
 // images
 import heartIcon from "@/assets/images/components/shared/icon-heart.png";
@@ -218,12 +186,9 @@ import returnIcon from "@/assets/images/components/shared/icon-return.png";
 import deliveryIcon from "@/assets/images/components/shared/icon-delivery.png";
 
 export default {
-  name: "ProductDetails",
+  name: "ProductDetailsInfo",
   components: {
     AppButton,
-    AppHeading,
-    AppBreadcrumb,
-    ProductCard,
   },
   data() {
     return {
@@ -236,18 +201,12 @@ export default {
       deliveryIcon,
     };
   },
-  computed: {
+    computed: {
     ...mapGetters("products", [
-      "allProducts",
-      "isLoading",
-      "error",
       "selectedProduct",
       "selectedProductLoading",
       "selectedProductError",
     ]),
-    products() {
-      return this.allProducts.slice(0, 4);
-    },
     discountedPrice() {
       if (!this.selectedProduct) return 0;
       const { price, discountPercentage } = this.selectedProduct;
@@ -257,7 +216,6 @@ export default {
   },
   methods: {
     ...mapActions("products", [
-      "fetchProducts",
       "fetchProductById",
       "addToSideCart",
     ]),
@@ -282,10 +240,6 @@ export default {
   created() {
     const id = this.$route.params.id;
     this.fetchProductById(id);
-
-    if (this.allProducts.length === 0) {
-      this.fetchProducts();
-    }
   },
   watch: {
     "$route.params.id"(newId) {
@@ -294,22 +248,10 @@ export default {
       this.fetchProductById(newId);
     },
   },
-};
+}
 </script>
 
 <style scoped>
-.product-details {
-  padding: 80px 40px 140px; /* TODO: figma design deviation (135px not 40px) */
-}
-
-.product-details__breadcrumb {
-  margin-bottom: 40px; 
-}
-
-/* ================================================== */
-/* Main Section                                        */
-/* ================================================== */
-
 .product-details__main {
   margin-bottom: 140px;
 }
@@ -619,18 +561,5 @@ export default {
   color: var(--color-black);
   text-decoration: underline;
 }
-
-/* *************************************************** */
-/* More products section */
-/* *************************************************** */
-.products-details__app-heading {
-  margin-bottom: 40px; /* TODO: figma design deviation (60px) */
-}
-
-.product-details__more-products {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-}
 </style>
+

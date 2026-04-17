@@ -44,7 +44,7 @@ const router = new VueRouter({
     {
       name: "product_details",
       path: "/product/:id",
-      component: () => import("@/views/ProductDetails.vue"),
+      component: () => import("@/views/ProductDetails/ProductDetails.vue"),
       meta: {
         title: "Product Details | Exclusive",
       },
