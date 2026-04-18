@@ -2,7 +2,8 @@
 
 A frontend e-commerce web application built as part of an academy internship project.
 
-🔗 **Live Demo:** [ecommerce-vue-by-dahlia.netlify.app](https://ecommerce-vue-by-dahlia.netlify.app/)
+🔗 **Live Demo:** [Link 1](https://ecommerce-vue-by-dahlia.netlify.app) | [Backup Link](https://ecommerce-by-dahlia.netlify.app)
+*(If one is unavailable, please try the other.)*
 
 ---
 
