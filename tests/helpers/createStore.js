@@ -15,6 +15,8 @@ export function createStore(overrides = {}) {
           browseCategoryList: [],
           categoriesLoading: false,
           categoriesError: null,
+          sideCartItems: [],
+          totalUSD: 0,
           ...overrides.state,
         },
         getters: {
@@ -24,6 +26,8 @@ export function createStore(overrides = {}) {
           allBrowseCategoris: (state) => state.browseCategoryList,
           categoriesLoading: (state) => state.categoriesLoading,
           categoriesError: (state) => state.categoriesError,
+          sideCartItems: (state) => state.sideCartItems,
+          totalUSD: (state) => state.totalUSD,
           ...overrides.getters,
         },
         actions: {
