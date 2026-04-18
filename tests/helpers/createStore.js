@@ -27,6 +27,8 @@ export function createStore(overrides = {}) {
           categoriesLoading: (state) => state.categoriesLoading,
           categoriesError: (state) => state.categoriesError,
           sideCartItems: (state) => state.sideCartItems,
+          sideCartCount: (state) =>
+            state.sideCartItems.reduce((sum, item) => sum + item.quantity, 0),
           totalUSD: (state) => state.totalUSD,
           ...overrides.getters,
         },
