@@ -1,15 +1,20 @@
 <template>
-  <div>
+  <div class="sort-select">
     <label class="heading-20px-regular" for="sort-select__input">Sort by</label>
     <div class="title-14px-regular sort-select__wrapper">
       <img class="sort-select__arrow" :src="downIcon" />
-      <select class="sort-select__input" id="sort-select__input">
-        <option>Highest Rating</option>
-        <option>Price: Low to high</option>
-        <option>Price: High to low</option>
-        <option>Discount Percentage</option>
-        <option>Brand</option>
-        <option>Category</option>
+      <select
+        class="sort-select__input"
+        id="sort-select__input"
+        v-model="selected"
+        @change="$emit('change', selected)"
+      >
+        <option value="rating">Highest Rating</option>
+        <option value="price-asc">Price: Low to high</option>
+        <option value="price-desc">Price: High to low</option>
+        <option value="discountPercentage">Discount Percentage</option>
+        <option value="brand">Brand</option>
+        <option value="category">Category</option>
       </select>
     </div>
   </div>
@@ -22,6 +27,7 @@ export default {
   name: "SortSelect",
   data() {
     return {
+      selected: "rating",
       downIcon,
     };
   },

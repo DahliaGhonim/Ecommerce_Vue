@@ -1,5 +1,5 @@
 <template>
-  <div class="category">
+  <div class="category" @click="$emit('click', category.slug)">
     <div class="category__icon-wrapper">
       <img class="category__icon" :src="category.icon" />
     </div>

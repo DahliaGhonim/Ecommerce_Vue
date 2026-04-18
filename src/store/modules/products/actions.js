@@ -2,11 +2,29 @@ import categoryIcons from "./categoryIcons.js";
 import fallbackIcon from "@/assets/images/store/modules/products/default.png";
 
 export default {
-  async fetchProducts({ commit }) {
+  async fetchProducts({ commit }, { sortBy = "rating", order = "desc" } = {}) {
     commit("SET_LOADING", true);
     commit("SET_ERROR", null);
     try {
-      const response = await fetch("https://dummyjson.com/products");
+      const response = await fetch(
+        `https://dummyjson.com/products?sortBy=${sortBy}&order=${order}&limit=100`
+      );
+      const data = await response.json();
+      commit("SET_PRODUCTS", data.products);
+    } catch (error) {
+      commit("SET_ERROR", error.message);
+    } finally {
+      commit("SET_LOADING", false);
+    }
+  },
+
+  async fetchProductsByCategory({ commit }, category) {
+    commit("SET_LOADING", true);
+    commit("SET_ERROR", null);
+    try {
+      const response = await fetch(
+        `https://dummyjson.com/products/category/${category}?limit=100`
+      );
       const data = await response.json();
       commit("SET_PRODUCTS", data.products);
     } catch (error) {
@@ -45,6 +63,7 @@ export default {
 
       const categories = data.map((name) => ({
         name: name.charAt(0).toUpperCase() + name.slice(1),
+        slug: name,
         icon: categoryIcons[name] || fallbackIcon,
       }));
 

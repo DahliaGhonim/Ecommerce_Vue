@@ -4,7 +4,7 @@
       <AppBreadcrumb current="Products" />
       <div class="products__header-main">
         <h2 class="heading-36px-semibold">Explore Our Products</h2>
-        <SortSelect />
+        <SortSelect @change="handleSortChange($event)" />
       </div>
     </header>
     <div class="products__grid">
@@ -44,10 +44,26 @@ export default {
     ...mapGetters("products", ["allProducts", "isLoading", "error"]),
   },
   methods: {
-    ...mapActions("products", ["fetchProducts"]),
+    ...mapActions("products", ["fetchProducts", "fetchProductsByCategory"]),
+    handleSortChange(value) {
+      const sortMap = {
+        "rating":              { sortBy: "rating",             order: "desc" },
+        "price-asc":           { sortBy: "price",              order: "asc"  },
+        "price-desc":          { sortBy: "price",              order: "desc" },
+        "discountPercentage":  { sortBy: "discountPercentage", order: "desc" },
+        "brand":               { sortBy: "brand",              order: "asc"  },
+        "category":            { sortBy: "category",           order: "asc"  },
+      };
+      this.fetchProducts(sortMap[value]);
+    },
   },
   created() {
-    this.fetchProducts();
+    const category = this.$route.query.category;
+    if (category) {
+      this.fetchProductsByCategory(category);
+    } else {
+      this.fetchProducts({ sortBy: "rating", order: "desc" });
+    }
   },
 };
 </script>

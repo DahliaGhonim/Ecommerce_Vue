@@ -13,6 +13,7 @@
         v-for="(category, index) in categories"
         :key="index"
         :category="category"
+        @click="goToCategory(category.slug)"
       />
     </div>
   </section>
@@ -42,6 +43,9 @@ export default {
   },
   methods: {
     ...mapActions("products", ["fetchCategories"]),
+    goToCategory(slug) {
+      this.$router.push({ path: "/products", query: { category: slug } });
+    },
   },
   created() {
     if (this.allBrowseCategoris.length === 0) {
