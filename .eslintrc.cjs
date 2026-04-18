@@ -11,7 +11,11 @@ module.exports = {
   ],
   overrides: [
     {
-      files: ["tests/**/*.spec.js", "tests/**/*.test.js"],
+      files: [
+        "tests/**/*.spec.js",
+        "tests/**/*.test.js",
+        "tests/helpers/**/*.js", // 👈 add this
+      ],
       env: {
         jest: true,
       },
